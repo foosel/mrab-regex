@@ -1,3 +1,7 @@
+Version: 2024.9.11
+
+    Updated to Unicode 16.0.0.
+
 Version: 2024.7.24
 
     Git issue 539: Bug: Partial matching fails on a simple example

@@ -425,6 +425,10 @@ def parse_script_extensions(properties, subpath):
                 prop_name = line.split()[-1]
                 property = properties[munge(prop_name)]
                 property['values'] = {}
+            elif line.startswith('# All code points not explicitly listed for '):
+                prop_name = line.split()[-1]
+                property = properties[munge(prop_name)]
+                property['values'] = {}
             elif not line.startswith('#'):
                 line = line.partition('#')[0]
                 fields = [field.strip() for field in line.split(';')]
@@ -1764,7 +1768,7 @@ typedef RE_UINT32 (*RE_GetPropertyFunc)(RE_UINT32 codepoint);
         h_file.write('int re_get_full_case_folding(RE_UINT32 codepoint, RE_UINT32* folded);\n')
 
 # The Unicode version.
-UNICODE_VERSION = '15.1.0'
+UNICODE_VERSION = '16.0.0'
 
 this_folder = dirname(__file__)
 
