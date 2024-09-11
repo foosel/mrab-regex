@@ -1,3 +1,7 @@
+Version: 2024.9.12
+
+    Updated to actions/download-artifact@v4 in main.yml.
+
 Version: 2024.9.11
 
     Updated to Unicode 16.0.0.
