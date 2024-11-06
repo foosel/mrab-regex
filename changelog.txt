@@ -1,3 +1,7 @@
+Version: 2024.11.6
+
+    Git issue 546: Partial match not working in some instances with non-greedy capture
+
 Version: 2024.9.14
 
     Reverted to actions/download-artifact@v3 and actions/upload-artifact@v3 in main.yml because GitHub Actions failed when using them.

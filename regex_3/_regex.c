@@ -16535,9 +16535,6 @@ backtrack:
                           RE_PARTIAL_RIGHT)
                             return RE_ERROR_PARTIAL;
 
-                        if (pos >= limit)
-                            break;
-
                         /* Look for the tail string. */
                         found = string_search(state, test, pos + 1, limit +
                           length, TRUE, &is_partial);
@@ -16593,9 +16590,6 @@ backtrack:
                           RE_PARTIAL_RIGHT)
                             return RE_ERROR_PARTIAL;
 
-                        if (pos >= limit)
-                            break;
-
                         /* Look for the tail string. */
                         found = string_search_fld(state, test, pos + 1, limit,
                           &new_pos, &is_partial);
@@ -16650,9 +16644,6 @@ backtrack:
 
                         if (pos <= state->text_start && state->partial_side == RE_PARTIAL_LEFT)
                             return RE_ERROR_PARTIAL;
-
-                        if (pos <= limit)
-                            break;
 
                         /* Look for the tail string. */
                         found = string_search_fld_rev(state, test, pos - 1,
@@ -16713,9 +16704,6 @@ backtrack:
                           RE_PARTIAL_RIGHT)
                             return RE_ERROR_PARTIAL;
 
-                        if (pos >= limit)
-                            break;
-
                         /* Look for the tail string. */
                         found = string_search_ign(state, test, pos + 1, limit +
                           length, TRUE, &is_partial);
@@ -16773,9 +16761,6 @@ backtrack:
                         if (pos <= state->text_start && state->partial_side == RE_PARTIAL_LEFT)
                             return RE_ERROR_PARTIAL;
 
-                        if (pos <= limit)
-                            break;
-
                         /* Look for the tail string. */
                         found = string_search_ign_rev(state, test, pos - 1,
                           limit - length, TRUE, &is_partial);
@@ -16832,9 +16817,6 @@ backtrack:
 
                         if (pos <= state->text_start && state->partial_side == RE_PARTIAL_LEFT)
                             return RE_ERROR_PARTIAL;
-
-                        if (pos <= limit)
-                            break;
 
                         /* Look for the tail string. */
                         found = string_search_rev(state, test, pos - 1, limit -
