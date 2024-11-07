@@ -1,3 +1,7 @@
+Version: 2024.11.7
+
+    Updated pyproject.toml and setup.py according to PEP 517.
+
 Version: 2024.11.6
 
     Git issue 546: Partial match not working in some instances with non-greedy capture
