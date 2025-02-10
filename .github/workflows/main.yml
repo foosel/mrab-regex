@@ -8,7 +8,7 @@ on:
       - '*'
 
 env:
-  PYTHON_VER: '3.10'  # Python to run test/cibuildwheel
+  PYTHON_VER: '3.11'  # Python to run test/cibuildwheel
   CIBW_BUILD: cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*
   CIBW_TEST_COMMAND: python -m unittest regex.test_regex
 
@@ -61,7 +61,7 @@ jobs:
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
-          name: regex-files-wheels-${{ matrix.runs-on }}
+          name: regex-files-wheels-${{ matrix.platform }}
           path: wheelhouse/*.whl
 
      # I cannot get this to work!
@@ -113,13 +113,13 @@ jobs:
       - name: Upload source distribution
         uses: actions/upload-artifact@v4
         with:
-          name: regex-files-dist-${{ matrix.runs-on }}
+          name: regex-files-dist
           path: dist/*.tar.gz
 
       - name: Upload manylinux1_x86_64 wheels
         uses: actions/upload-artifact@v4
         with:
-          name: regex-files-manylinux2010-${{ matrix.runs-on }}
+          name: regex-files-manylinux2010
           path: wheelhouse/*.whl
 
   # Build and upload aarch64/ppc64le/s390x wheels.
@@ -155,7 +155,7 @@ jobs:
       - name: Upload ${{ matrix.arch }} wheels
         uses: actions/upload-artifact@v4
         with:
-          name: regex-files-arch-${{ matrix.runs-on }}
+          name: regex-files-arch-${{ matrix.arch }}
           path: wheelhouse/*.whl
 
   # Upload to PyPI
