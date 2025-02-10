@@ -2988,6 +2988,9 @@ Py_LOCAL_INLINE(BOOL) in_set_union(RE_EncodingTable* encoding, RE_LocaleInfo*
 Py_LOCAL_INLINE(BOOL) matches_member(RE_EncodingTable* encoding, RE_LocaleInfo*
   locale_info, RE_Node* member, Py_UCS4 ch) {
     switch (member->op) {
+    case RE_OP_ANY_ALL:
+        TRACE(("%s\n", re_op_text[member->op]))
+        return TRUE;
     case RE_OP_CHARACTER:
         /* values are: char_code */
         TRACE(("%s %d %d\n", re_op_text[member->op], member->match,
@@ -23873,6 +23876,7 @@ Py_LOCAL_INLINE(int) build_ANY(RE_CompileArgs* args) {
     if (!node)
         return RE_ERROR_MEMORY;
 
+    node->match = TRUE;
     args->code += 2;
 
     /* Append the node. */
@@ -25009,6 +25013,11 @@ Py_LOCAL_INLINE(int) build_SET(RE_CompileArgs* args) {
     /* Compile the character set. */
     do {
         switch (args->code[0]) {
+        case RE_OP_ANY_ALL:
+            status = build_ANY(args);
+            if (status != RE_ERROR_SUCCESS)
+                return status;
+            break;
         case RE_OP_CHARACTER:
         case RE_OP_PROPERTY:
             status = build_CHARACTER_or_PROPERTY(args);

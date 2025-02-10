@@ -1,3 +1,11 @@
+Version: 2025.2.10
+
+    Git issue 551: Infinite loop on V1 search
+
+    It's catastrophic backtracking due to the possibilities of full casefolding.
+
+    Replacing `[\s\S]` with `(?s:.)` can help, but a proper fix would be more difficult.
+
 Version: 2024.11.7
 
     Updated pyproject.toml and setup.py according to PEP 517.

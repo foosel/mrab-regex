@@ -4356,6 +4356,19 @@ thing
         self.assertEqual(bool(regex.match(r'<thinking>.*?</thinking>', '<thinking>xyz abc foo ', partial=True)), True)
         self.assertEqual(bool(regex.match(r'<thinking>.*?</thinking>', '<thinking>xyz abc foo bar', partial=True)), True)
 
+        # Git issue 551:
+        self.assertEqual(bool(regex.match(r'(?V1)[[\s\S]]', 'a')), True)
+        self.assertEqual(bool(regex.match(r'(?V1)[[\s\S]-a]', 'a')), True)
+        self.assertEqual(bool(regex.match(r'(?V1)[[\s\S]--a]', 'a')), False)
+        self.assertEqual(bool(regex.match(r'(?V1)[[a-z]--b]', 'a')), True)
+        self.assertEqual(bool(regex.match(r'(?V1)[[\s\S]--b]', 'a')), True)
+        self.assertEqual(bool(regex.match(r'(?V1)[a-[\s\S]]', 'a')), True)
+        self.assertEqual(bool(regex.match(r'(?V1)[a--[\s\S]]', 'a')), False)
+
+        self.assertEqual(regex.search(r'(?ifu)(H\N{LATIN SMALL LETTER O WITH DIAERESIS}gskolan?)[\\s\\S]*p',
+          'Yrkesh\N{LATIN SMALL LETTER O WITH DIAERESIS}gskola . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen'),
+          None)
+
     def test_fuzzy_ext(self):
         self.assertEqual(bool(regex.fullmatch(r'(?r)(?:a){e<=1:[a-z]}', 'e')),
           True)

@@ -3813,8 +3813,20 @@ class SetUnion(SetBase):
             if isinstance(m, SetUnion) and m.positive:
                 # Union in union.
                 items.extend(m.items)
+            elif isinstance(m, AnyAll):
+                return AnyAll()
             else:
                 items.append(m)
+
+        # Are there complementary properties?
+        properties = (set(), set())
+
+        for m in items:
+            if isinstance(m, Property):
+                properties[m.positive].add((m.value, m.case_flags, m.zerowidth))
+
+        if properties[0] & properties[1]:
+            return AnyAll()
 
         if len(items) == 1:
             i = items[0]
