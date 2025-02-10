@@ -1,3 +1,7 @@
+Version: 2025.2.11
+
+    Updated main.yml to Artifacts v4.
+
 Version: 2025.2.10
 
     Git issue 551: Infinite loop on V1 search
