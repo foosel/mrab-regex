@@ -1,3 +1,7 @@
+Version: 2025.2.13
+
+    Dropping support for Python 3.8 and removing it from main.yml.
+
 Version: 2025.2.12
 
     Further fixes to main.yml.
