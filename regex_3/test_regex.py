@@ -4369,6 +4369,10 @@ thing
           'Yrkesh\N{LATIN SMALL LETTER O WITH DIAERESIS}gskola . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen . Studie\N{LATIN SMALL LETTER A WITH DIAERESIS}mnen'),
           None)
 
+        # Git issue 572: Inline ASCII modifier doesn't seem to affect anything
+        self.assertEqual(bool(regex.match(r'\d', '\uFF19')), True)
+        self.assertEqual(bool(regex.match(r'(?a:\d)', '\uFF19')), False)
+
     def test_fuzzy_ext(self):
         self.assertEqual(bool(regex.fullmatch(r'(?r)(?:a){e<=1:[a-z]}', 'e')),
           True)

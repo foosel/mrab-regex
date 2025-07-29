@@ -9,7 +9,7 @@ on:
 
 env:
   PYTHON_VER: '3.11'  # Python to run test/cibuildwheel
-  CIBW_BUILD: cp39-* cp310-* cp311-* cp312-* cp313-*
+  CIBW_BUILD: cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*
   CIBW_TEST_COMMAND: python -m unittest regex.test_regex
 
 jobs:
@@ -133,12 +133,11 @@ jobs:
     strategy:
       matrix:
         arch: [aarch64, ppc64le, s390x]
-        # Building in QEMU is very slow, so parallelize the tasks.
-        skip_image: ["*musllinux*", "*manylinux*"]
 
     env:
       CIBW_ARCHS: ${{ matrix.arch }}
-      CIBW_SKIP:  ${{ matrix.skip_image }}
+      # Building in QEMU is very slow, so parallelize the tasks.
+      CIBW_SKIP: "*musllinux* *manylinux*"
 
     steps:
       - uses: actions/checkout@v3

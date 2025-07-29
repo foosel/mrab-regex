@@ -664,6 +664,16 @@ def make_additional_properties(unicode_data):
 
     make_binary_property(properties, ['Posix_XDigit'], posix_xdigit)
 
+    # Make the 'Posix_Space' property.
+    posix_space = make_ranges(0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x20)
+
+    make_binary_property(properties, ['Posix_Space'], posix_space)
+
+    # Make the 'Posix_Word' property.
+    posix_word = posix_alnum | Ranges([(ord('_'), ord('_'))])
+
+    make_binary_property(properties, ['Posix_Word'], posix_word)
+
     # Make the 'Horiz_Space' property.
     horiz_space = make_ranges(0x09, 0x20, 0xA0, 0x1680, 0x180E) | Ranges([(0x2000, 0x200A)]) | make_ranges(0x202F, 0x205F, 0x3000)
 
@@ -792,9 +802,6 @@ def determine_entry_type(iterable):
         return 'RE_UINT16'
 
     raise ValueError('cannot determine C type for {}..{}'.format(lower, upper))
-
-def is_binary(property):
-    return sum(1 for val in val_list if val['id'] != 0) == 1
 
 def count_ranges(property):
     count = 0

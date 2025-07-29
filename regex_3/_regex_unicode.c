@@ -1219,6 +1219,8 @@ char* re_strings[] = {
     "POSIXALNUM",
     "POSIXDIGIT",
     "POSIXPUNCT",
+    "POSIXSPACE",
+    "POSIXWORD",
     "POSIXXDIGIT",
     "POSTFIXNUMERIC",
     "PP",
@@ -1700,46 +1702,48 @@ RE_Property re_properties[] = {
     {1195, 76,  0}, /* POSIXALNUM */
     {1196, 77,  0}, /* POSIXDIGIT */
     {1197, 78,  0}, /* POSIXPUNCT */
-    {1198, 79,  0}, /* POSIXXDIGIT */
-    {1204, 80,  0}, /* PREPENDEDCONCATENATIONMARK */
-    {1170, 80,  0}, /* PCM */
-    {1205, 81,  0}, /* PRINT */
-    {1222, 82,  0}, /* QUOTATIONMARK */
-    {1219, 82,  0}, /* QMARK */
-    {1224, 83,  0}, /* RADICAL */
-    {1225, 84,  0}, /* REGIONALINDICATOR */
-    {1231, 84,  0}, /* RI */
-    {1261, 85, 19}, /* SCRIPT */
-    {1259, 85, 19}, /* SC */
-    {1262, 86, 19}, /* SCRIPTEXTENSIONS */
-    {1263, 86, 19}, /* SCX */
-    {1269, 87, 20}, /* SENTENCEBREAK */
-    {1258, 87, 20}, /* SB */
-    {1270, 88,  0}, /* SENTENCETERMINAL */
-    {1316, 88,  0}, /* STERM */
-    {1298, 89,  0}, /* SOFTDOTTED */
-    {1264, 89,  0}, /* SD */
-    {1395, 90,  0}, /* TERMINALPUNCTUATION */
-    {1394, 90,  0}, /* TERM */
-    {1440, 91,  0}, /* UNIFIEDIDEOGRAPH */
-    {1435, 91,  0}, /* UIDEO */
-    {1444, 92,  0}, /* UPPERCASE */
-    {1443, 92,  0}, /* UPPER */
-    {1449, 93,  0}, /* VARIATIONSELECTOR */
-    {1472, 93,  0}, /* VS */
-    {1458, 94,  0}, /* VERTSPACE */
-    {1446, 94,  0}, /* V */
-    {1481, 95,  0}, /* WHITESPACE */
-    {1489, 95,  0}, /* WSPACE */
-    {1307, 95,  0}, /* SPACE */
-    {1484, 96,  0}, /* WORD */
-    {1485, 97, 21}, /* WORDBREAK */
-    {1479, 97, 21}, /* WB */
-    {1490, 98,  0}, /* XDIGIT */
-    {1492, 99,  0}, /* XIDCONTINUE */
-    {1491, 99,  0}, /* XIDC */
-    {1494, 100,  0}, /* XIDSTART */
-    {1493, 100,  0}, /* XIDS */
+    {1198, 79,  0}, /* POSIXSPACE */
+    {1199, 80,  0}, /* POSIXWORD */
+    {1200, 81,  0}, /* POSIXXDIGIT */
+    {1206, 82,  0}, /* PREPENDEDCONCATENATIONMARK */
+    {1170, 82,  0}, /* PCM */
+    {1207, 83,  0}, /* PRINT */
+    {1224, 84,  0}, /* QUOTATIONMARK */
+    {1221, 84,  0}, /* QMARK */
+    {1226, 85,  0}, /* RADICAL */
+    {1227, 86,  0}, /* REGIONALINDICATOR */
+    {1233, 86,  0}, /* RI */
+    {1263, 87, 19}, /* SCRIPT */
+    {1261, 87, 19}, /* SC */
+    {1264, 88, 19}, /* SCRIPTEXTENSIONS */
+    {1265, 88, 19}, /* SCX */
+    {1271, 89, 20}, /* SENTENCEBREAK */
+    {1260, 89, 20}, /* SB */
+    {1272, 90,  0}, /* SENTENCETERMINAL */
+    {1318, 90,  0}, /* STERM */
+    {1300, 91,  0}, /* SOFTDOTTED */
+    {1266, 91,  0}, /* SD */
+    {1397, 92,  0}, /* TERMINALPUNCTUATION */
+    {1396, 92,  0}, /* TERM */
+    {1442, 93,  0}, /* UNIFIEDIDEOGRAPH */
+    {1437, 93,  0}, /* UIDEO */
+    {1446, 94,  0}, /* UPPERCASE */
+    {1445, 94,  0}, /* UPPER */
+    {1451, 95,  0}, /* VARIATIONSELECTOR */
+    {1474, 95,  0}, /* VS */
+    {1460, 96,  0}, /* VERTSPACE */
+    {1448, 96,  0}, /* V */
+    {1483, 97,  0}, /* WHITESPACE */
+    {1491, 97,  0}, /* WSPACE */
+    {1309, 97,  0}, /* SPACE */
+    {1486, 98,  0}, /* WORD */
+    {1487, 99, 21}, /* WORDBREAK */
+    {1481, 99, 21}, /* WB */
+    {1492, 100,  0}, /* XDIGIT */
+    {1494, 101,  0}, /* XIDCONTINUE */
+    {1493, 101,  0}, /* XIDC */
+    {1496, 102,  0}, /* XIDSTART */
+    {1495, 102,  0}, /* XIDS */
 };
 
 /* Property values. */
@@ -1748,20 +1752,20 @@ RE_PropertyValue re_property_values[] = {
     {1037,  0,   0}, /* N */
     { 604,  0,   0}, /* F */
     { 605,  0,   0}, /* FALSE */
-    {1502,  0,   1}, /* YES */
-    {1498,  0,   1}, /* Y */
-    {1363,  0,   1}, /* T */
-    {1426,  0,   1}, /* TRUE */
-    {1234,  1,   0}, /* RIGHTTOLEFT */
-    {1223,  1,   0}, /* R */
+    {1504,  0,   1}, /* YES */
+    {1500,  0,   1}, /* Y */
+    {1365,  0,   1}, /* T */
+    {1428,  0,   1}, /* TRUE */
+    {1236,  1,   0}, /* RIGHTTOLEFT */
+    {1225,  1,   0}, /* R */
     { 293,  1,   1}, /* BOUNDARYNEUTRAL */
     { 285,  1,   1}, /* BN */
-    {1267,  1,   2}, /* SEGMENTSEPARATOR */
-    {1248,  1,   2}, /* S */
+    {1269,  1,   2}, /* SEGMENTSEPARATOR */
+    {1250,  1,   2}, /* S */
     {1162,  1,   3}, /* PARAGRAPHSEPARATOR */
     { 248,  1,   3}, /* B */
-    {1481,  1,   4}, /* WHITESPACE */
-    {1487,  1,   4}, /* WS */
+    {1483,  1,   4}, /* WHITESPACE */
+    {1489,  1,   4}, /* WS */
     {1146,  1,   5}, /* OTHERNEUTRAL */
     {1124,  1,   5}, /* ON */
     { 595,  1,   6}, /* EUROPEANTERMINATOR */
@@ -1782,18 +1786,18 @@ RE_PropertyValue re_property_values[] = {
     { 187,  1,  13}, /* AL */
     { 863,  1,  14}, /* LEFTTORIGHTEMBEDDING */
     { 896,  1,  14}, /* LRE */
-    {1235,  1,  15}, /* RIGHTTOLEFTEMBEDDING */
-    {1239,  1,  15}, /* RLE */
+    {1237,  1,  15}, /* RIGHTTOLEFTEMBEDDING */
+    {1241,  1,  15}, /* RLE */
     {1193,  1,  16}, /* POPDIRECTIONALFORMAT */
     {1172,  1,  16}, /* PDF */
     { 865,  1,  17}, /* LEFTTORIGHTOVERRIDE */
     { 898,  1,  17}, /* LRO */
-    {1237,  1,  18}, /* RIGHTTOLEFTOVERRIDE */
-    {1241,  1,  18}, /* RLO */
+    {1239,  1,  18}, /* RIGHTTOLEFTOVERRIDE */
+    {1243,  1,  18}, /* RLO */
     { 864,  1,  19}, /* LEFTTORIGHTISOLATE */
     { 897,  1,  19}, /* LRI */
-    {1236,  1,  20}, /* RIGHTTOLEFTISOLATE */
-    {1240,  1,  20}, /* RLI */
+    {1238,  1,  20}, /* RIGHTTOLEFTISOLATE */
+    {1242,  1,  20}, /* RLI */
     { 613,  1,  21}, /* FIRSTSTRONGISOLATE */
     { 619,  1,  21}, /* FSI */
     {1194,  1,  22}, /* POPDIRECTIONALISOLATE */
@@ -1811,7 +1815,7 @@ RE_PropertyValue re_property_values[] = {
     { 840,  2,   4}, /* LATINEXTB */
     { 765,  2,   5}, /* IPAEXTENSIONS */
     { 764,  2,   5}, /* IPAEXT */
-    {1310,  2,   6}, /* SPACINGMODIFIERLETTERS */
+    {1312,  2,   6}, /* SPACINGMODIFIERLETTERS */
     {1014,  2,   6}, /* MODIFIERLETTERS */
     { 430,  2,   7}, /* COMBININGDIACRITICALMARKS */
     { 521,  2,   7}, /* DIACRITICALS */
@@ -1824,15 +1828,15 @@ RE_PropertyValue re_property_values[] = {
     { 227,  2,  11}, /* ARMENIAN */
     { 703,  2,  12}, /* HEBREW */
     { 210,  2,  13}, /* ARABIC */
-    {1359,  2,  14}, /* SYRIAC */
+    {1361,  2,  14}, /* SYRIAC */
     { 226,  2,  15}, /* ARABICSUPPLEMENT */
     { 225,  2,  15}, /* ARABICSUP */
-    {1400,  2,  16}, /* THAANA */
+    {1402,  2,  16}, /* THAANA */
     {1067,  2,  17}, /* NKO */
-    {1253,  2,  18}, /* SAMARITAN */
+    {1255,  2,  18}, /* SAMARITAN */
     { 930,  2,  19}, /* MANDAIC */
-    {1361,  2,  20}, /* SYRIACSUPPLEMENT */
-    {1360,  2,  20}, /* SYRIACSUP */
+    {1363,  2,  20}, /* SYRIACSUPPLEMENT */
+    {1362,  2,  20}, /* SYRIACSUP */
     { 215,  2,  21}, /* ARABICEXTENDEDB */
     { 212,  2,  21}, /* ARABICEXTB */
     { 214,  2,  22}, /* ARABICEXTENDEDA */
@@ -1842,14 +1846,14 @@ RE_PropertyValue re_property_values[] = {
     { 670,  2,  25}, /* GURMUKHI */
     { 666,  2,  26}, /* GUJARATI */
     {1129,  2,  27}, /* ORIYA */
-    {1378,  2,  28}, /* TAMIL */
-    {1393,  2,  29}, /* TELUGU */
+    {1380,  2,  28}, /* TAMIL */
+    {1395,  2,  29}, /* TELUGU */
     { 801,  2,  30}, /* KANNADA */
     { 917,  2,  31}, /* MALAYALAM */
-    {1287,  2,  32}, /* SINHALA */
-    {1401,  2,  33}, /* THAI */
+    {1289,  2,  32}, /* SINHALA */
+    {1403,  2,  33}, /* THAI */
     { 832,  2,  34}, /* LAO */
-    {1403,  2,  35}, /* TIBETAN */
+    {1405,  2,  35}, /* TIBETAN */
     {1029,  2,  36}, /* MYANMAR */
     { 635,  2,  37}, /* GEORGIAN */
     { 686,  2,  38}, /* HANGULJAMO */
@@ -1858,29 +1862,29 @@ RE_PropertyValue re_property_values[] = {
     { 592,  2,  40}, /* ETHIOPICSUPPLEMENT */
     { 591,  2,  40}, /* ETHIOPICSUP */
     { 379,  2,  41}, /* CHEROKEE */
-    {1437,  2,  42}, /* UNIFIEDCANADIANABORIGINALSYLLABICS */
-    {1430,  2,  42}, /* UCAS */
+    {1439,  2,  42}, /* UNIFIEDCANADIANABORIGINALSYLLABICS */
+    {1432,  2,  42}, /* UCAS */
     { 318,  2,  42}, /* CANADIANSYLLABICS */
     {1105,  2,  43}, /* OGHAM */
-    {1246,  2,  44}, /* RUNIC */
-    {1364,  2,  45}, /* TAGALOG */
+    {1248,  2,  44}, /* RUNIC */
+    {1366,  2,  45}, /* TAGALOG */
     { 698,  2,  46}, /* HANUNOO */
     { 309,  2,  47}, /* BUHID */
-    {1366,  2,  48}, /* TAGBANWA */
+    {1368,  2,  48}, /* TAGBANWA */
     { 814,  2,  49}, /* KHMER */
     {1019,  2,  50}, /* MONGOLIAN */
-    {1438,  2,  51}, /* UNIFIEDCANADIANABORIGINALSYLLABICSEXTENDED */
-    {1431,  2,  51}, /* UCASEXT */
+    {1440,  2,  51}, /* UNIFIEDCANADIANABORIGINALSYLLABICSEXTENDED */
+    {1433,  2,  51}, /* UCASEXT */
     { 873,  2,  52}, /* LIMBU */
-    {1369,  2,  53}, /* TAILE */
+    {1371,  2,  53}, /* TAILE */
     {1056,  2,  54}, /* NEWTAILUE */
     { 815,  2,  55}, /* KHMERSYMBOLS */
     { 307,  2,  56}, /* BUGINESE */
-    {1370,  2,  57}, /* TAITHAM */
+    {1372,  2,  57}, /* TAITHAM */
     { 431,  2,  58}, /* COMBININGDIACRITICALMARKSEXTENDED */
     { 522,  2,  58}, /* DIACRITICALSEXT */
     { 252,  2,  59}, /* BALINESE */
-    {1320,  2,  60}, /* SUNDANESE */
+    {1322,  2,  60}, /* SUNDANESE */
     { 260,  2,  61}, /* BATAK */
     { 867,  2,  62}, /* LEPCHA */
     {1109,  2,  63}, /* OLCHIKI */
@@ -1888,10 +1892,10 @@ RE_PropertyValue re_property_values[] = {
     { 487,  2,  64}, /* CYRILLICEXTC */
     { 637,  2,  65}, /* GEORGIANEXTENDED */
     { 636,  2,  65}, /* GEORGIANEXT */
-    {1322,  2,  66}, /* SUNDANESESUPPLEMENT */
-    {1321,  2,  66}, /* SUNDANESESUP */
-    {1453,  2,  67}, /* VEDICEXTENSIONS */
-    {1452,  2,  67}, /* VEDICEXT */
+    {1324,  2,  66}, /* SUNDANESESUPPLEMENT */
+    {1323,  2,  66}, /* SUNDANESESUP */
+    {1455,  2,  67}, /* VEDICEXTENSIONS */
+    {1454,  2,  67}, /* VEDICEXT */
     {1186,  2,  68}, /* PHONETICEXTENSIONS */
     {1185,  2,  68}, /* PHONETICEXT */
     {1187,  2,  69}, /* PHONETICEXTENSIONSSUPPLEMENT */
@@ -1903,9 +1907,9 @@ RE_PropertyValue re_property_values[] = {
     { 662,  2,  72}, /* GREEKEXTENDED */
     { 661,  2,  72}, /* GREEKEXT */
     { 630,  2,  73}, /* GENERALPUNCTUATION */
-    {1213,  2,  73}, /* PUNCTUATION */
-    {1331,  2,  74}, /* SUPERSCRIPTSANDSUBSCRIPTS */
-    {1330,  2,  74}, /* SUPERANDSUB */
+    {1215,  2,  73}, /* PUNCTUATION */
+    {1333,  2,  74}, /* SUPERSCRIPTSANDSUBSCRIPTS */
+    {1332,  2,  74}, /* SUPERANDSUB */
     { 475,  2,  75}, /* CURRENCYSYMBOLS */
     { 432,  2,  76}, /* COMBININGDIACRITICALMARKSFORSYMBOLS */
     { 523,  2,  76}, /* DIACRITICALSFORSYMBOLS */
@@ -1930,16 +1934,16 @@ RE_PropertyValue re_property_values[] = {
     { 527,  2,  89}, /* DINGBATS */
     { 997,  2,  90}, /* MISCELLANEOUSMATHEMATICALSYMBOLSA */
     {1003,  2,  90}, /* MISCMATHSYMBOLSA */
-    {1333,  2,  91}, /* SUPPLEMENTALARROWSA */
-    {1326,  2,  91}, /* SUPARROWSA */
+    {1335,  2,  91}, /* SUPPLEMENTALARROWSA */
+    {1328,  2,  91}, /* SUPARROWSA */
     { 301,  2,  92}, /* BRAILLEPATTERNS */
     { 300,  2,  92}, /* BRAILLE */
-    {1334,  2,  93}, /* SUPPLEMENTALARROWSB */
-    {1327,  2,  93}, /* SUPARROWSB */
+    {1336,  2,  93}, /* SUPPLEMENTALARROWSB */
+    {1329,  2,  93}, /* SUPARROWSB */
     { 998,  2,  94}, /* MISCELLANEOUSMATHEMATICALSYMBOLSB */
     {1004,  2,  94}, /* MISCMATHSYMBOLSB */
-    {1336,  2,  95}, /* SUPPLEMENTALMATHEMATICALOPERATORS */
-    {1332,  2,  95}, /* SUPMATHOPERATORS */
+    {1338,  2,  95}, /* SUPPLEMENTALMATHEMATICALOPERATORS */
+    {1334,  2,  95}, /* SUPMATHOPERATORS */
     {1000,  2,  96}, /* MISCELLANEOUSSYMBOLSANDARROWS */
     { 996,  2,  96}, /* MISCARROWS */
     { 642,  2,  97}, /* GLAGOLITIC */
@@ -1948,13 +1952,13 @@ RE_PropertyValue re_property_values[] = {
     { 462,  2,  99}, /* COPTIC */
     { 639,  2, 100}, /* GEORGIANSUPPLEMENT */
     { 638,  2, 100}, /* GEORGIANSUP */
-    {1405,  2, 101}, /* TIFINAGH */
+    {1407,  2, 101}, /* TIFINAGH */
     { 588,  2, 102}, /* ETHIOPICEXTENDED */
     { 585,  2, 102}, /* ETHIOPICEXT */
     { 489,  2, 103}, /* CYRILLICEXTENDEDA */
     { 485,  2, 103}, /* CYRILLICEXTA */
-    {1337,  2, 104}, /* SUPPLEMENTALPUNCTUATION */
-    {1343,  2, 104}, /* SUPPUNCTUATION */
+    {1339,  2, 104}, /* SUPPLEMENTALPUNCTUATION */
+    {1345,  2, 104}, /* SUPPUNCTUATION */
     { 407,  2, 105}, /* CJKRADICALSSUPPLEMENT */
     { 406,  2, 105}, /* CJKRADICALSSUP */
     { 800,  2, 106}, /* KANGXIRADICALS */
@@ -1980,29 +1984,29 @@ RE_PropertyValue re_property_values[] = {
     { 389,  2, 118}, /* CJKCOMPAT */
     { 412,  2, 119}, /* CJKUNIFIEDIDEOGRAPHSEXTENSIONA */
     { 397,  2, 119}, /* CJKEXTA */
-    {1508,  2, 120}, /* YIJINGHEXAGRAMSYMBOLS */
-    {1507,  2, 120}, /* YIJING */
+    {1510,  2, 120}, /* YIJINGHEXAGRAMSYMBOLS */
+    {1509,  2, 120}, /* YIJING */
     { 411,  2, 121}, /* CJKUNIFIEDIDEOGRAPHS */
     { 388,  2, 121}, /* CJK */
-    {1510,  2, 122}, /* YISYLLABLES */
-    {1509,  2, 123}, /* YIRADICALS */
+    {1512,  2, 122}, /* YISYLLABLES */
+    {1511,  2, 123}, /* YIRADICALS */
     { 884,  2, 124}, /* LISU */
-    {1447,  2, 125}, /* VAI */
+    {1449,  2, 125}, /* VAI */
     { 490,  2, 126}, /* CYRILLICEXTENDEDB */
     { 486,  2, 126}, /* CYRILLICEXTB */
     { 254,  2, 127}, /* BAMUM */
     {1016,  2, 128}, /* MODIFIERTONELETTERS */
     { 848,  2, 129}, /* LATINEXTENDEDD */
     { 842,  2, 129}, /* LATINEXTD */
-    {1351,  2, 130}, /* SYLOTINAGRI */
+    {1353,  2, 130}, /* SYLOTINAGRI */
     { 438,  2, 131}, /* COMMONINDICNUMBERFORMS */
     { 747,  2, 131}, /* INDICNUMBERFORMS */
     {1178,  2, 132}, /* PHAGSPA */
-    {1257,  2, 133}, /* SAURASHTRA */
+    {1259,  2, 133}, /* SAURASHTRA */
     { 516,  2, 134}, /* DEVANAGARIEXTENDED */
     { 514,  2, 134}, /* DEVANAGARIEXT */
     { 809,  2, 135}, /* KAYAHLI */
-    {1228,  2, 136}, /* REJANG */
+    {1230,  2, 136}, /* REJANG */
     { 687,  2, 137}, /* HANGULJAMOEXTENDEDA */
     { 771,  2, 137}, /* JAMOEXTA */
     { 774,  2, 138}, /* JAVANESE */
@@ -2011,7 +2015,7 @@ RE_PropertyValue re_property_values[] = {
     { 372,  2, 140}, /* CHAM */
     {1033,  2, 141}, /* MYANMAREXTENDEDA */
     {1030,  2, 141}, /* MYANMAREXTA */
-    {1371,  2, 142}, /* TAIVIET */
+    {1373,  2, 142}, /* TAIVIET */
     { 984,  2, 143}, /* MEETEIMAYEKEXTENSIONS */
     { 983,  2, 143}, /* MEETEIMAYEKEXT */
     { 589,  2, 144}, /* ETHIOPICEXTENDEDA */
@@ -2029,29 +2033,29 @@ RE_PropertyValue re_property_values[] = {
     { 710,  2, 151}, /* HIGHPRIVATEUSESURROGATES */
     { 711,  2, 151}, /* HIGHPUSURROGATES */
     { 895,  2, 152}, /* LOWSURROGATES */
-    {1207,  2, 153}, /* PRIVATEUSEAREA */
-    {1211,  2, 153}, /* PUA */
-    {1206,  2, 153}, /* PRIVATEUSE */
+    {1209,  2, 153}, /* PRIVATEUSEAREA */
+    {1213,  2, 153}, /* PUA */
+    {1208,  2, 153}, /* PRIVATEUSE */
     { 393,  2, 154}, /* CJKCOMPATIBILITYIDEOGRAPHS */
     { 395,  2, 154}, /* CJKCOMPATIDEOGRAPHS */
     { 197,  2, 155}, /* ALPHABETICPRESENTATIONFORMS */
     { 196,  2, 155}, /* ALPHABETICPF */
     { 223,  2, 156}, /* ARABICPRESENTATIONFORMSA */
     { 221,  2, 156}, /* ARABICPFA */
-    {1450,  2, 157}, /* VARIATIONSELECTORS */
-    {1472,  2, 157}, /* VS */
-    {1456,  2, 158}, /* VERTICALFORMS */
+    {1452,  2, 157}, /* VARIATIONSELECTORS */
+    {1474,  2, 157}, /* VS */
+    {1458,  2, 158}, /* VERTICALFORMS */
     { 434,  2, 159}, /* COMBININGHALFMARKS */
     { 678,  2, 159}, /* HALFMARKS */
     { 392,  2, 160}, /* CJKCOMPATIBILITYFORMS */
     { 390,  2, 160}, /* CJKCOMPATFORMS */
-    {1293,  2, 161}, /* SMALLFORMVARIANTS */
-    {1292,  2, 161}, /* SMALLFORMS */
+    {1295,  2, 161}, /* SMALLFORMVARIANTS */
+    {1294,  2, 161}, /* SMALLFORMS */
     { 224,  2, 162}, /* ARABICPRESENTATIONFORMSB */
     { 222,  2, 162}, /* ARABICPFB */
     { 680,  2, 163}, /* HALFWIDTHANDFULLWIDTHFORMS */
     { 677,  2, 163}, /* HALFANDFULLFORMS */
-    {1311,  2, 164}, /* SPECIALS */
+    {1313,  2, 164}, /* SPECIALS */
     { 879,  2, 165}, /* LINEARBSYLLABARY */
     { 878,  2, 166}, /* LINEARBIDEOGRAMS */
     { 174,  2, 167}, /* AEGEANNUMBERS */
@@ -2065,16 +2069,16 @@ RE_PropertyValue re_property_values[] = {
     {1112,  2, 174}, /* OLDITALIC */
     { 650,  2, 175}, /* GOTHIC */
     {1114,  2, 176}, /* OLDPERMIC */
-    {1434,  2, 177}, /* UGARITIC */
+    {1436,  2, 177}, /* UGARITIC */
     {1115,  2, 178}, /* OLDPERSIAN */
     { 511,  2, 179}, /* DESERET */
-    {1276,  2, 180}, /* SHAVIAN */
+    {1278,  2, 180}, /* SHAVIAN */
     {1136,  2, 181}, /* OSMANYA */
     {1133,  2, 182}, /* OSAGE */
     { 557,  2, 183}, /* ELBASAN */
     { 329,  2, 184}, /* CAUCASIANALBANIAN */
-    {1466,  2, 185}, /* VITHKUQI */
-    {1410,  2, 186}, /* TODHRI */
+    {1468,  2, 185}, /* VITHKUQI */
+    {1412,  2, 186}, /* TODHRI */
     { 876,  2, 187}, /* LINEARA */
     { 850,  2, 188}, /* LATINEXTENDEDF */
     { 852,  2, 188}, /* LATINEXTF */
@@ -2094,55 +2098,55 @@ RE_PropertyValue re_property_values[] = {
     { 246,  2, 202}, /* AVESTAN */
     { 759,  2, 203}, /* INSCRIPTIONALPARTHIAN */
     { 758,  2, 204}, /* INSCRIPTIONALPAHLAVI */
-    {1210,  2, 205}, /* PSALTERPAHLAVI */
+    {1212,  2, 205}, /* PSALTERPAHLAVI */
     {1118,  2, 206}, /* OLDTURKIC */
     {1111,  2, 207}, /* OLDHUNGARIAN */
     { 692,  2, 208}, /* HANIFIROHINGYA */
     { 624,  2, 209}, /* GARAY */
-    {1245,  2, 210}, /* RUMINUMERALSYMBOLS */
-    {1244,  2, 210}, /* RUMI */
-    {1504,  2, 211}, /* YEZIDI */
+    {1247,  2, 210}, /* RUMINUMERALSYMBOLS */
+    {1246,  2, 210}, /* RUMI */
+    {1506,  2, 211}, /* YEZIDI */
     { 216,  2, 212}, /* ARABICEXTENDEDC */
     { 213,  2, 212}, /* ARABICEXTC */
     {1116,  2, 213}, /* OLDSOGDIAN */
-    {1300,  2, 214}, /* SOGDIAN */
+    {1302,  2, 214}, /* SOGDIAN */
     {1119,  2, 215}, /* OLDUYGHUR */
     { 383,  2, 216}, /* CHORASMIAN */
     { 559,  2, 217}, /* ELYMAIC */
     { 297,  2, 218}, /* BRAHMI */
     { 787,  2, 219}, /* KAITHI */
-    {1303,  2, 220}, /* SORASOMPENG */
+    {1305,  2, 220}, /* SORASOMPENG */
     { 371,  2, 221}, /* CHAKMA */
     { 911,  2, 222}, /* MAHAJANI */
-    {1275,  2, 223}, /* SHARADA */
-    {1288,  2, 224}, /* SINHALAARCHAICNUMBERS */
+    {1277,  2, 223}, /* SHARADA */
+    {1290,  2, 224}, /* SINHALAARCHAICNUMBERS */
     { 818,  2, 225}, /* KHOJKI */
     {1026,  2, 226}, /* MULTANI */
     { 819,  2, 227}, /* KHUDAWADI */
     { 652,  2, 228}, /* GRANTHA */
-    {1427,  2, 229}, /* TULUTIGALARI */
+    {1429,  2, 229}, /* TULUTIGALARI */
     {1054,  2, 230}, /* NEWA */
-    {1407,  2, 231}, /* TIRHUTA */
-    {1282,  2, 232}, /* SIDDHAM */
+    {1409,  2, 231}, /* TIRHUTA */
+    {1284,  2, 232}, /* SIDDHAM */
     {1011,  2, 233}, /* MODI */
     {1021,  2, 234}, /* MONGOLIANSUPPLEMENT */
     {1020,  2, 234}, /* MONGOLIANSUP */
-    {1375,  2, 235}, /* TAKRI */
+    {1377,  2, 235}, /* TAKRI */
     {1035,  2, 236}, /* MYANMAREXTENDEDC */
     {1032,  2, 236}, /* MYANMAREXTC */
     { 180,  2, 237}, /* AHOM */
     { 530,  2, 238}, /* DOGRA */
-    {1477,  2, 239}, /* WARANGCITI */
+    {1479,  2, 239}, /* WARANGCITI */
     { 528,  2, 240}, /* DIVESAKURU */
     {1045,  2, 241}, /* NANDINAGARI */
-    {1516,  2, 242}, /* ZANABAZARSQUARE */
-    {1305,  2, 243}, /* SOYOMBO */
-    {1439,  2, 244}, /* UNIFIEDCANADIANABORIGINALSYLLABICSEXTENDEDA */
-    {1432,  2, 244}, /* UCASEXTA */
+    {1518,  2, 242}, /* ZANABAZARSQUARE */
+    {1307,  2, 243}, /* SOYOMBO */
+    {1441,  2, 244}, /* UNIFIEDCANADIANABORIGINALSYLLABICSEXTENDEDA */
+    {1434,  2, 244}, /* UCASEXTA */
     {1168,  2, 245}, /* PAUCINHAU */
     { 517,  2, 246}, /* DEVANAGARIEXTENDEDA */
     { 515,  2, 246}, /* DEVANAGARIEXTA */
-    {1324,  2, 247}, /* SUNUWAR */
+    {1326,  2, 247}, /* SUNUWAR */
     { 271,  2, 248}, /* BHAIKSUKI */
     { 962,  2, 249}, /* MARCHEN */
     { 964,  2, 250}, /* MASARAMGONDI */
@@ -2151,8 +2155,8 @@ RE_PropertyValue re_property_values[] = {
     { 808,  2, 253}, /* KAWI */
     { 886,  2, 254}, /* LISUSUPPLEMENT */
     { 885,  2, 254}, /* LISUSUP */
-    {1380,  2, 255}, /* TAMILSUPPLEMENT */
-    {1379,  2, 255}, /* TAMILSUP */
+    {1382,  2, 255}, /* TAMILSUPPLEMENT */
+    {1381,  2, 255}, /* TAMILSUP */
     { 471,  2, 256}, /* CUNEIFORM */
     { 473,  2, 257}, /* CUNEIFORMNUMBERSANDPUNCTUATION */
     { 472,  2, 257}, /* CUNEIFORMNUMBERS */
@@ -2167,7 +2171,7 @@ RE_PropertyValue re_property_values[] = {
     { 256,  2, 265}, /* BAMUMSUPPLEMENT */
     { 255,  2, 265}, /* BAMUMSUP */
     {1022,  2, 266}, /* MRO */
-    {1383,  2, 267}, /* TANGSA */
+    {1385,  2, 267}, /* TANGSA */
     { 259,  2, 268}, /* BASSAVAH */
     {1159,  2, 269}, /* PAHAWHHMONG */
     { 820,  2, 270}, /* KIRATRAI */
@@ -2175,26 +2179,26 @@ RE_PropertyValue re_property_values[] = {
     { 991,  2, 272}, /* MIAO */
     { 734,  2, 273}, /* IDEOGRAPHICSYMBOLSANDPUNCTUATION */
     { 733,  2, 273}, /* IDEOGRAPHICSYMBOLS */
-    {1384,  2, 274}, /* TANGUT */
-    {1385,  2, 275}, /* TANGUTCOMPONENTS */
+    {1386,  2, 274}, /* TANGUT */
+    {1387,  2, 275}, /* TANGUTCOMPONENTS */
     { 813,  2, 276}, /* KHITANSMALLSCRIPT */
-    {1387,  2, 277}, /* TANGUTSUPPLEMENT */
-    {1386,  2, 277}, /* TANGUTSUP */
+    {1389,  2, 277}, /* TANGUTSUPPLEMENT */
+    {1388,  2, 277}, /* TANGUTSUP */
     { 794,  2, 278}, /* KANAEXTENDEDB */
     { 792,  2, 278}, /* KANAEXTB */
     { 796,  2, 279}, /* KANASUPPLEMENT */
     { 795,  2, 279}, /* KANASUP */
     { 793,  2, 280}, /* KANAEXTENDEDA */
     { 791,  2, 280}, /* KANAEXTA */
-    {1295,  2, 281}, /* SMALLKANAEXTENSION */
-    {1294,  2, 281}, /* SMALLKANAEXT */
+    {1297,  2, 281}, /* SMALLKANAEXTENSION */
+    {1296,  2, 281}, /* SMALLKANAEXT */
     {1097,  2, 282}, /* NUSHU */
     { 541,  2, 283}, /* DUPLOYAN */
-    {1279,  2, 284}, /* SHORTHANDFORMATCONTROLS */
-    {1357,  2, 285}, /* SYMBOLSFORLEGACYCOMPUTINGSUPPLEMENT */
-    {1356,  2, 285}, /* SYMBOLSFORLEGACYCOMPUTINGSUP */
-    {1522,  2, 286}, /* ZNAMENNYMUSICALNOTATION */
-    {1521,  2, 286}, /* ZNAMENNYMUSIC */
+    {1281,  2, 284}, /* SHORTHANDFORMATCONTROLS */
+    {1359,  2, 285}, /* SYMBOLSFORLEGACYCOMPUTINGSUPPLEMENT */
+    {1358,  2, 285}, /* SYMBOLSFORLEGACYCOMPUTINGSUP */
+    {1524,  2, 286}, /* ZNAMENNYMUSICALNOTATION */
+    {1523,  2, 286}, /* ZNAMENNYMUSIC */
     { 312,  2, 287}, /* BYZANTINEMUSICALSYMBOLS */
     { 311,  2, 287}, /* BYZANTINEMUSIC */
     {1028,  2, 288}, /* MUSICALSYMBOLS */
@@ -2203,13 +2207,13 @@ RE_PropertyValue re_property_values[] = {
     { 202,  2, 289}, /* ANCIENTGREEKMUSIC */
     { 788,  2, 290}, /* KAKTOVIKNUMERALS */
     { 971,  2, 291}, /* MAYANNUMERALS */
-    {1373,  2, 292}, /* TAIXUANJINGSYMBOLS */
-    {1372,  2, 292}, /* TAIXUANJING */
+    {1375,  2, 292}, /* TAIXUANJINGSYMBOLS */
+    {1374,  2, 292}, /* TAIXUANJING */
     { 465,  2, 293}, /* COUNTINGRODNUMERALS */
     { 464,  2, 293}, /* COUNTINGROD */
     { 967,  2, 294}, /* MATHEMATICALALPHANUMERICSYMBOLS */
     { 966,  2, 294}, /* MATHALPHANUM */
-    {1346,  2, 295}, /* SUTTONSIGNWRITING */
+    {1348,  2, 295}, /* SUTTONSIGNWRITING */
     { 851,  2, 296}, /* LATINEXTENDEDG */
     { 853,  2, 296}, /* LATINEXTG */
     { 644,  2, 297}, /* GLAGOLITICSUPPLEMENT */
@@ -2217,8 +2221,8 @@ RE_PropertyValue re_property_values[] = {
     { 492,  2, 298}, /* CYRILLICEXTENDEDD */
     { 488,  2, 298}, /* CYRILLICEXTD */
     {1100,  2, 299}, /* NYIAKENGPUACHUEHMONG */
-    {1421,  2, 300}, /* TOTO */
-    {1475,  2, 301}, /* WANCHO */
+    {1423,  2, 300}, /* TOTO */
+    {1477,  2, 301}, /* WANCHO */
     {1042,  2, 302}, /* NAGMUNDARI */
     {1121,  2, 303}, /* OLONAL */
     { 590,  2, 304}, /* ETHIOPICEXTENDEDB */
@@ -2242,20 +2246,20 @@ RE_PropertyValue re_property_values[] = {
     {1005,  2, 315}, /* MISCPICTOGRAPHS */
     { 568,  2, 316}, /* EMOTICONS */
     {1131,  2, 317}, /* ORNAMENTALDINGBATS */
-    {1425,  2, 318}, /* TRANSPORTANDMAPSYMBOLS */
-    {1424,  2, 318}, /* TRANSPORTANDMAP */
+    {1427,  2, 318}, /* TRANSPORTANDMAPSYMBOLS */
+    {1426,  2, 318}, /* TRANSPORTANDMAP */
     { 190,  2, 319}, /* ALCHEMICALSYMBOLS */
     { 189,  2, 319}, /* ALCHEMICAL */
     { 633,  2, 320}, /* GEOMETRICSHAPESEXTENDED */
     { 632,  2, 320}, /* GEOMETRICSHAPESEXT */
-    {1335,  2, 321}, /* SUPPLEMENTALARROWSC */
-    {1328,  2, 321}, /* SUPARROWSC */
-    {1338,  2, 322}, /* SUPPLEMENTALSYMBOLSANDPICTOGRAPHS */
-    {1344,  2, 322}, /* SUPSYMBOLSANDPICTOGRAPHS */
+    {1337,  2, 321}, /* SUPPLEMENTALARROWSC */
+    {1330,  2, 321}, /* SUPARROWSC */
+    {1340,  2, 322}, /* SUPPLEMENTALSYMBOLSANDPICTOGRAPHS */
+    {1346,  2, 322}, /* SUPSYMBOLSANDPICTOGRAPHS */
     { 382,  2, 323}, /* CHESSSYMBOLS */
-    {1354,  2, 324}, /* SYMBOLSANDPICTOGRAPHSEXTENDEDA */
-    {1353,  2, 324}, /* SYMBOLSANDPICTOGRAPHSEXTA */
-    {1355,  2, 325}, /* SYMBOLSFORLEGACYCOMPUTING */
+    {1356,  2, 324}, /* SYMBOLSANDPICTOGRAPHSEXTENDEDA */
+    {1355,  2, 324}, /* SYMBOLSANDPICTOGRAPHSEXTA */
+    {1357,  2, 325}, /* SYMBOLSFORLEGACYCOMPUTING */
     { 413,  2, 326}, /* CJKUNIFIEDIDEOGRAPHSEXTENSIONB */
     { 398,  2, 326}, /* CJKEXTB */
     { 414,  2, 327}, /* CJKUNIFIEDIDEOGRAPHSEXTENSIONC */
@@ -2274,13 +2278,13 @@ RE_PropertyValue re_property_values[] = {
     { 403,  2, 333}, /* CJKEXTG */
     { 419,  2, 334}, /* CJKUNIFIEDIDEOGRAPHSEXTENSIONH */
     { 404,  2, 334}, /* CJKEXTH */
-    {1367,  2, 335}, /* TAGS */
-    {1451,  2, 336}, /* VARIATIONSELECTORSSUPPLEMENT */
-    {1473,  2, 336}, /* VSSUP */
-    {1339,  2, 337}, /* SUPPLEMENTARYPRIVATEUSEAREAA */
-    {1341,  2, 337}, /* SUPPUAA */
-    {1340,  2, 338}, /* SUPPLEMENTARYPRIVATEUSEAREAB */
-    {1342,  2, 338}, /* SUPPUAB */
+    {1369,  2, 335}, /* TAGS */
+    {1453,  2, 336}, /* VARIATIONSELECTORSSUPPLEMENT */
+    {1475,  2, 336}, /* VSSUP */
+    {1341,  2, 337}, /* SUPPLEMENTARYPRIVATEUSEAREAA */
+    {1343,  2, 337}, /* SUPPUAA */
+    {1342,  2, 338}, /* SUPPLEMENTARYPRIVATEUSEAREAB */
+    {1344,  2, 338}, /* SUPPUAB */
     {1082,  3,   0}, /* NOTREORDERED */
     {   1,  3,   0}, /* 0 */
     {1083,  3,   0}, /* NR */
@@ -2372,9 +2376,9 @@ RE_PropertyValue re_property_values[] = {
     {1089,  3,  38}, /* NUKTA */
     { 144,  3,  38}, /* 7 */
     {1066,  3,  38}, /* NK */
-    {1461,  3,  39}, /* VIRAMA */
+    {1463,  3,  39}, /* VIRAMA */
     { 160,  3,  39}, /* 9 */
-    {1471,  3,  39}, /* VR */
+    {1473,  3,  39}, /* VR */
     { 368,  3,  40}, /* CCC84 */
     { 159,  3,  40}, /* 84 */
     { 369,  3,  41}, /* CCC91 */
@@ -2410,9 +2414,9 @@ RE_PropertyValue re_property_values[] = {
     { 697,  3,  54}, /* HANREADING */
     { 138,  3,  54}, /* 6 */
     { 696,  3,  54}, /* HANR */
-    {1232,  3,  55}, /* RIGHT */
+    {1234,  3,  55}, /* RIGHT */
     {  74,  3,  55}, /* 226 */
-    {1223,  3,  55}, /* R */
+    {1225,  3,  55}, /* R */
     { 344,  3,  56}, /* CCC133 */
     {  46,  3,  56}, /* 133 */
     { 244,  3,  57}, /* ATTACHEDBELOWLEFT */
@@ -2423,21 +2427,21 @@ RE_PropertyValue re_property_values[] = {
     {1049,  4,   1}, /* NB */
     { 440,  4,   2}, /* COMPAT */
     { 429,  4,   2}, /* COM */
-    {1329,  4,   3}, /* SUPER */
-    {1325,  4,   3}, /* SUP */
+    {1331,  4,   3}, /* SUPER */
+    {1327,  4,   3}, /* SUP */
     { 618,  4,   4}, /* FRACTION */
     { 617,  4,   4}, /* FRA */
     { 319,  4,   5}, /* CANONICAL */
     { 316,  4,   5}, /* CAN */
-    {1318,  4,   6}, /* SUB */
+    {1320,  4,   6}, /* SUB */
     { 615,  4,   7}, /* FONT */
     { 386,  4,   8}, /* CIRCLE */
     { 570,  4,   8}, /* ENC */
-    {1482,  4,   9}, /* WIDE */
-    {1455,  4,  10}, /* VERTICAL */
-    {1454,  4,  10}, /* VERT */
-    {1314,  4,  11}, /* SQUARE */
-    {1313,  4,  11}, /* SQR */
+    {1484,  4,   9}, /* WIDE */
+    {1457,  4,  10}, /* VERTICAL */
+    {1456,  4,  10}, /* VERT */
+    {1316,  4,  11}, /* SQUARE */
+    {1315,  4,  11}, /* SQR */
     { 768,  4,  12}, /* ISOLATED */
     { 767,  4,  12}, /* ISO */
     { 610,  4,  13}, /* FINAL */
@@ -2446,12 +2450,12 @@ RE_PropertyValue re_property_values[] = {
     { 753,  4,  14}, /* INIT */
     { 980,  4,  15}, /* MEDIAL */
     { 977,  4,  15}, /* MED */
-    {1291,  4,  16}, /* SMALL */
-    {1296,  4,  16}, /* SML */
+    {1293,  4,  16}, /* SMALL */
+    {1298,  4,  16}, /* SML */
     {1048,  4,  17}, /* NARROW */
     {1046,  4,  17}, /* NAR */
-    {1482,  5,   0}, /* WIDE */
-    {1474,  5,   0}, /* W */
+    {1484,  5,   0}, /* WIDE */
+    {1476,  5,   0}, /* W */
     {1053,  5,   1}, /* NEUTRAL */
     {1037,  5,   1}, /* N */
     {1048,  5,   2}, /* NARROW */
@@ -2462,38 +2466,38 @@ RE_PropertyValue re_property_values[] = {
     { 673,  5,   4}, /* H */
     { 620,  5,   5}, /* FULLWIDTH */
     { 604,  5,   5}, /* F */
-    {1436,  6,   0}, /* UNASSIGNED */
+    {1438,  6,   0}, /* UNASSIGNED */
     { 426,  6,   0}, /* CN */
     { 459,  6,   1}, /* CONTROL */
     { 331,  6,   1}, /* CC */
     { 427,  6,   1}, /* CNTRL */
-    {1308,  6,   2}, /* SPACESEPARATOR */
-    {1524,  6,   2}, /* ZS */
+    {1310,  6,   2}, /* SPACESEPARATOR */
+    {1526,  6,   2}, /* ZS */
     {1148,  6,   3}, /* OTHERPUNCTUATION */
     {1192,  6,   3}, /* PO */
     { 474,  6,   4}, /* CURRENCYSYMBOL */
-    {1259,  6,   4}, /* SC */
+    {1261,  6,   4}, /* SC */
     {1127,  6,   5}, /* OPENPUNCTUATION */
-    {1209,  6,   5}, /* PS */
+    {1211,  6,   5}, /* PS */
     { 424,  6,   6}, /* CLOSEPUNCTUATION */
     {1174,  6,   6}, /* PE */
     { 970,  6,   7}, /* MATHSYMBOL */
-    {1290,  6,   7}, /* SM */
+    {1292,  6,   7}, /* SM */
     { 502,  6,   8}, /* DASHPUNCTUATION */
     {1171,  6,   8}, /* PD */
     { 506,  6,   9}, /* DECIMALNUMBER */
     {1052,  6,   9}, /* ND */
     { 526,  6,   9}, /* DIGIT */
-    {1445,  6,  10}, /* UPPERCASELETTER */
+    {1447,  6,  10}, /* UPPERCASELETTER */
     { 900,  6,  10}, /* LU */
     {1015,  6,  11}, /* MODIFIERSYMBOL */
-    {1289,  6,  11}, /* SK */
+    {1291,  6,  11}, /* SK */
     { 444,  6,  12}, /* CONNECTORPUNCTUATION */
     {1169,  6,  12}, /* PC */
     { 894,  6,  13}, /* LOWERCASELETTER */
     { 887,  6,  13}, /* LL */
     {1149,  6,  14}, /* OTHERSYMBOL */
-    {1297,  6,  14}, /* SO */
+    {1299,  6,  14}, /* SO */
     {1143,  6,  15}, /* OTHERLETTER */
     { 889,  6,  15}, /* LO */
     { 755,  6,  16}, /* INITIALPUNCTUATION */
@@ -2504,7 +2508,7 @@ RE_PropertyValue re_property_values[] = {
     {1070,  6,  18}, /* NO */
     { 611,  6,  19}, /* FINALPUNCTUATION */
     {1176,  6,  19}, /* PF */
-    {1408,  6,  20}, /* TITLECASELETTER */
+    {1410,  6,  20}, /* TITLECASELETTER */
     { 899,  6,  20}, /* LT */
     {1013,  6,  21}, /* MODIFIERLETTER */
     { 888,  6,  21}, /* LM */
@@ -2512,17 +2516,17 @@ RE_PropertyValue re_property_values[] = {
     {1010,  6,  22}, /* MN */
     { 579,  6,  23}, /* ENCLOSINGMARK */
     { 976,  6,  23}, /* ME */
-    {1309,  6,  24}, /* SPACINGMARK */
+    {1311,  6,  24}, /* SPACINGMARK */
     { 974,  6,  24}, /* MC */
     { 870,  6,  25}, /* LETTERNUMBER */
     {1069,  6,  25}, /* NL */
     { 882,  6,  26}, /* LINESEPARATOR */
-    {1520,  6,  26}, /* ZL */
+    {1522,  6,  26}, /* ZL */
     {1162,  6,  27}, /* PARAGRAPHSEPARATOR */
-    {1523,  6,  27}, /* ZP */
-    {1345,  6,  28}, /* SURROGATE */
+    {1525,  6,  27}, /* ZP */
+    {1347,  6,  28}, /* SURROGATE */
     { 470,  6,  28}, /* CS */
-    {1206,  6,  29}, /* PRIVATEUSE */
+    {1208,  6,  29}, /* PRIVATEUSE */
     { 428,  6,  29}, /* CO */
     {1137,  6,  30}, /* OTHER */
     { 313,  6,  30}, /* C */
@@ -2537,39 +2541,39 @@ RE_PropertyValue re_property_values[] = {
     {1090,  6,  33}, /* NUMBER */
     {1037,  6,  33}, /* N */
     {1038,  6,  33}, /* N& */
-    {1213,  6,  34}, /* PUNCTUATION */
+    {1215,  6,  34}, /* PUNCTUATION */
     {1157,  6,  34}, /* P */
-    {1212,  6,  34}, /* PUNCT */
+    {1214,  6,  34}, /* PUNCT */
     {1158,  6,  34}, /* P& */
-    {1352,  6,  35}, /* SYMBOL */
-    {1248,  6,  35}, /* S */
-    {1249,  6,  35}, /* S& */
-    {1272,  6,  36}, /* SEPARATOR */
-    {1513,  6,  36}, /* Z */
-    {1514,  6,  36}, /* Z& */
+    {1354,  6,  35}, /* SYMBOL */
+    {1250,  6,  35}, /* S */
+    {1251,  6,  35}, /* S& */
+    {1274,  6,  36}, /* SEPARATOR */
+    {1515,  6,  36}, /* Z */
+    {1516,  6,  36}, /* Z& */
     { 234,  6,  37}, /* ASSIGNED */
     { 327,  6,  38}, /* CASEDLETTER */
     { 856,  6,  38}, /* LC */
     {1137,  7,   0}, /* OTHER */
-    {1497,  7,   0}, /* XX */
+    {1499,  7,   0}, /* XX */
     { 459,  7,   1}, /* CONTROL */
     { 426,  7,   1}, /* CN */
     { 871,  7,   2}, /* LF */
     { 469,  7,   3}, /* CR */
     { 599,  7,   4}, /* EXTEND */
     { 596,  7,   4}, /* EX */
-    {1203,  7,   5}, /* PREPEND */
-    {1200,  7,   5}, /* PP */
-    {1309,  7,   6}, /* SPACINGMARK */
-    {1290,  7,   6}, /* SM */
+    {1205,  7,   5}, /* PREPEND */
+    {1202,  7,   5}, /* PP */
+    {1311,  7,   6}, /* SPACINGMARK */
+    {1292,  7,   6}, /* SM */
     { 827,  7,   7}, /* L */
-    {1446,  7,   8}, /* V */
-    {1363,  7,   9}, /* T */
-    {1526,  7,  10}, /* ZWJ */
+    {1448,  7,   8}, /* V */
+    {1365,  7,   9}, /* T */
+    {1528,  7,  10}, /* ZWJ */
     { 901,  7,  11}, /* LV */
     { 903,  7,  12}, /* LVT */
-    {1225,  7,  13}, /* REGIONALINDICATOR */
-    {1231,  7,  13}, /* RI */
+    {1227,  7,  13}, /* REGIONALINDICATOR */
+    {1233,  7,  13}, /* RI */
     { 547,  7,  14}, /* EBASE */
     { 546,  7,  14}, /* EB */
     { 548,  7,  15}, /* EBASEGAZ */
@@ -2582,10 +2586,10 @@ RE_PropertyValue re_property_values[] = {
     {1039,  8,   0}, /* NA */
     { 858,  8,   1}, /* LEADINGJAMO */
     { 827,  8,   1}, /* L */
-    {1470,  8,   2}, /* VOWELJAMO */
-    {1446,  8,   2}, /* V */
-    {1422,  8,   3}, /* TRAILINGJAMO */
-    {1363,  8,   3}, /* T */
+    {1472,  8,   2}, /* VOWELJAMO */
+    {1448,  8,   2}, /* V */
+    {1424,  8,   3}, /* TRAILINGJAMO */
+    {1365,  8,   3}, /* T */
     { 902,  8,   4}, /* LVSYLLABLE */
     { 901,  8,   4}, /* LV */
     { 904,  8,   5}, /* LVTSYLLABLE */
@@ -2595,53 +2599,53 @@ RE_PropertyValue re_property_values[] = {
     { 445,  9,   2}, /* CONSONANT */
     { 883,  9,   3}, /* LINKER */
     {1039, 10,   0}, /* NA */
-    {1414, 10,   1}, /* TOP */
-    {1232, 10,   2}, /* RIGHT */
+    {1416, 10,   1}, /* TOP */
+    {1234, 10,   2}, /* RIGHT */
     { 290, 10,   3}, /* BOTTOM */
     { 859, 10,   4}, /* LEFT */
     { 860, 10,   5}, /* LEFTANDRIGHT */
-    {1420, 10,   6}, /* TOPANDRIGHT */
-    {1418, 10,   7}, /* TOPANDLEFT */
-    {1419, 10,   8}, /* TOPANDLEFTANDRIGHT */
-    {1415, 10,   9}, /* TOPANDBOTTOM */
-    {1464, 10,  10}, /* VISUALORDERLEFT */
-    {1416, 10,  11}, /* TOPANDBOTTOMANDLEFT */
+    {1422, 10,   6}, /* TOPANDRIGHT */
+    {1420, 10,   7}, /* TOPANDLEFT */
+    {1421, 10,   8}, /* TOPANDLEFTANDRIGHT */
+    {1417, 10,   9}, /* TOPANDBOTTOM */
+    {1466, 10,  10}, /* VISUALORDERLEFT */
+    {1418, 10,  11}, /* TOPANDBOTTOMANDLEFT */
     { 292, 10,  12}, /* BOTTOMANDRIGHT */
-    {1417, 10,  13}, /* TOPANDBOTTOMANDRIGHT */
+    {1419, 10,  13}, /* TOPANDBOTTOMANDRIGHT */
     {1156, 10,  14}, /* OVERSTRUCK */
     { 291, 10,  15}, /* BOTTOMANDLEFT */
     {1137, 11,   0}, /* OTHER */
     { 452, 11,   1}, /* CONSONANTPLACEHOLDER */
     {1090, 11,   2}, /* NUMBER */
-    {1349, 11,   3}, /* SYLLABLEMODIFIER */
+    {1351, 11,   3}, /* SYLLABLEMODIFIER */
     { 278, 11,   4}, /* BINDU */
-    {1463, 11,   5}, /* VISARGA */
-    {1469, 11,   6}, /* VOWELINDEPENDENT */
+    {1465, 11,   5}, /* VISARGA */
+    {1471, 11,   6}, /* VOWELINDEPENDENT */
     { 445, 11,   7}, /* CONSONANT */
-    {1468, 11,   8}, /* VOWELDEPENDENT */
+    {1470, 11,   8}, /* VOWELDEPENDENT */
     {1089, 11,   9}, /* NUKTA */
     { 245, 11,  10}, /* AVAGRAHA */
-    {1461, 11,  11}, /* VIRAMA */
+    {1463, 11,  11}, /* VIRAMA */
     { 322, 11,  12}, /* CANTILLATIONMARK */
     { 446, 11,  13}, /* CONSONANTDEAD */
     { 628, 11,  14}, /* GEMINATIONMARK */
     { 451, 11,  15}, /* CONSONANTMEDIAL */
     {1017, 11,  16}, /* MODIFYINGLETTER */
     { 457, 11,  17}, /* CONSONANTWITHSTACKER */
-    {1214, 11,  18}, /* PUREKILLER */
+    {1216, 11,  18}, /* PUREKILLER */
     { 453, 11,  19}, /* CONSONANTPRECEDINGREPHA */
-    {1413, 11,  20}, /* TONEMARK */
+    {1415, 11,  20}, /* TONEMARK */
     { 450, 11,  21}, /* CONSONANTKILLER */
     { 448, 11,  22}, /* CONSONANTHEADLETTER */
     { 455, 11,  23}, /* CONSONANTSUBJOINED */
     { 762, 11,  24}, /* INVISIBLESTACKER */
-    {1226, 11,  25}, /* REGISTERSHIFTER */
+    {1228, 11,  25}, /* REGISTERSHIFTER */
     { 456, 11,  26}, /* CONSONANTSUCCEEDINGREPHA */
     { 447, 11,  27}, /* CONSONANTFINAL */
-    {1467, 11,  28}, /* VOWEL */
-    {1412, 11,  29}, /* TONELETTER */
+    {1469, 11,  28}, /* VOWEL */
+    {1414, 11,  29}, /* TONELETTER */
     { 449, 11,  30}, /* CONSONANTINITIALPOSTFIXED */
-    {1229, 11,  31}, /* REORDERINGKILLER */
+    {1231, 11,  31}, /* REORDERINGKILLER */
     {1076, 11,  32}, /* NONJOINER */
     { 780, 11,  33}, /* JOINER */
     { 298, 11,  34}, /* BRAHMIJOININGNUMBER */
@@ -2650,59 +2654,59 @@ RE_PropertyValue re_property_values[] = {
     {1073, 12,   0}, /* NOJOININGGROUP */
     { 803, 12,   1}, /* KASHMIRIYEH */
     { 191, 12,   2}, /* ALEF */
-    {1478, 12,   3}, /* WAW */
-    {1499, 12,   4}, /* YEH */
+    {1480, 12,   3}, /* WAW */
+    {1501, 12,   4}, /* YEH */
     { 264, 12,   5}, /* BEH */
-    {1390, 12,   6}, /* TEHMARBUTA */
+    {1392, 12,   6}, /* TEHMARBUTA */
     { 676, 12,   7}, /* HAH */
     { 499, 12,   8}, /* DAL */
-    {1227, 12,   9}, /* REH */
-    {1266, 12,  10}, /* SEEN */
-    {1251, 12,  11}, /* SAD */
-    {1368, 12,  12}, /* TAH */
+    {1229, 12,   9}, /* REH */
+    {1268, 12,  10}, /* SEEN */
+    {1253, 12,  11}, /* SAD */
+    {1370, 12,  12}, /* TAH */
     { 182, 12,  13}, /* AIN */
     { 621, 12,  14}, /* GAF */
     { 606, 12,  15}, /* FARSIYEH */
     { 608, 12,  16}, /* FEH */
-    {1217, 12,  17}, /* QAF */
+    {1219, 12,  17}, /* QAF */
     { 786, 12,  18}, /* KAF */
     { 829, 12,  19}, /* LAM */
     { 981, 12,  20}, /* MEEM */
     {1080, 12,  21}, /* NOON */
     { 705, 12,  22}, /* HEH */
-    {1347, 12,  23}, /* SWASHKAF */
+    {1349, 12,  23}, /* SWASHKAF */
     {1099, 12,  24}, /* NYA */
     { 823, 12,  25}, /* KNOTTEDHEH */
     { 706, 12,  26}, /* HEHGOAL */
-    {1391, 12,  27}, /* TEHMARBUTAGOAL */
+    {1393, 12,  27}, /* TEHMARBUTAGOAL */
     { 681, 12,  27}, /* HAMZAONHEHGOAL */
-    {1501, 12,  28}, /* YEHWITHTAIL */
-    {1500, 12,  29}, /* YEHBARREE */
+    {1503, 12,  28}, /* YEHWITHTAIL */
+    {1502, 12,  29}, /* YEHBARREE */
     { 188, 12,  30}, /* ALAPH */
     { 270, 12,  31}, /* BETH */
     { 622, 12,  32}, /* GAMAL */
     { 500, 12,  33}, /* DALATHRISH */
     { 701, 12,  34}, /* HE */
-    {1362, 12,  35}, /* SYRIACWAW */
-    {1515, 12,  36}, /* ZAIN */
+    {1364, 12,  35}, /* SYRIACWAW */
+    {1517, 12,  36}, /* ZAIN */
     { 707, 12,  37}, /* HETH */
-    {1396, 12,  38}, /* TETH */
-    {1511, 12,  39}, /* YUDH */
-    {1512, 12,  40}, /* YUDHHE */
+    {1398, 12,  38}, /* TETH */
+    {1513, 12,  39}, /* YUDH */
+    {1514, 12,  40}, /* YUDHHE */
     { 802, 12,  41}, /* KAPH */
     { 830, 12,  42}, /* LAMADH */
     { 995, 12,  43}, /* MIM */
     {1096, 12,  44}, /* NUN */
-    {1268, 12,  45}, /* SEMKATH */
+    {1270, 12,  45}, /* SEMKATH */
     { 612, 12,  46}, /* FINALSEMKATH */
     { 542, 12,  47}, /* E */
     {1174, 12,  48}, /* PE */
-    {1230, 12,  49}, /* REVERSEDPE */
-    {1252, 12,  50}, /* SADHE */
-    {1218, 12,  51}, /* QAPH */
-    {1278, 12,  52}, /* SHIN */
-    {1389, 12,  53}, /* TAW */
-    {1518, 12,  54}, /* ZHAIN */
+    {1232, 12,  49}, /* REVERSEDPE */
+    {1254, 12,  50}, /* SADHE */
+    {1220, 12,  51}, /* QAPH */
+    {1280, 12,  52}, /* SHIN */
+    {1391, 12,  53}, /* TAW */
+    {1520, 12,  54}, /* ZHAIN */
     { 810, 12,  55}, /* KHAPH */
     { 607, 12,  56}, /* FE */
     { 310, 12,  57}, /* BURUSHASKIYEHBARREE */
@@ -2717,10 +2721,10 @@ RE_PropertyValue re_property_values[] = {
     { 920, 12,  66}, /* MALAYALAMLLA */
     { 921, 12,  67}, /* MALAYALAMLLLA */
     { 927, 12,  68}, /* MALAYALAMSSA */
-    {1402, 12,  69}, /* THINYEH */
-    {1457, 12,  70}, /* VERTICALTAIL */
-    {1243, 12,  71}, /* ROHINGYAYEH */
-    {1317, 12,  72}, /* STRAIGHTWAW */
+    {1404, 12,  69}, /* THINYEH */
+    {1459, 12,  70}, /* VERTICALTAIL */
+    {1245, 12,  71}, /* ROHINGYAYEH */
+    {1319, 12,  72}, /* STRAIGHTWAW */
     { 175, 12,  73}, /* AFRICANFEH */
     { 177, 12,  74}, /* AFRICANQAF */
     { 176, 12,  75}, /* AFRICANNOON */
@@ -2754,19 +2758,19 @@ RE_PropertyValue re_property_values[] = {
     { 694, 12, 103}, /* HANIFIROHINGYAPA */
     { 693, 12, 104}, /* HANIFIROHINGYAKINNAYA */
     {1077, 13,   0}, /* NONJOINING */
-    {1429, 13,   0}, /* U */
-    {1423, 13,   1}, /* TRANSPARENT */
-    {1363, 13,   1}, /* T */
+    {1431, 13,   0}, /* U */
+    {1425, 13,   1}, /* TRANSPARENT */
+    {1365, 13,   1}, /* T */
     { 539, 13,   2}, /* DUALJOINING */
     { 497, 13,   2}, /* D */
-    {1233, 13,   3}, /* RIGHTJOINING */
-    {1223, 13,   3}, /* R */
+    {1235, 13,   3}, /* RIGHTJOINING */
+    {1225, 13,   3}, /* R */
     { 778, 13,   4}, /* JOINCAUSING */
     { 313, 13,   4}, /* C */
     { 861, 13,   5}, /* LEFTJOINING */
     { 827, 13,   5}, /* L */
-    {1441, 14,   0}, /* UNKNOWN */
-    {1497, 14,   0}, /* XX */
+    {1443, 14,   0}, /* UNKNOWN */
+    {1499, 14,   0}, /* XX */
     { 435, 14,   1}, /* COMBININGMARK */
     { 425, 14,   1}, /* CM */
     { 302, 14,   2}, /* BREAKAFTER */
@@ -2777,17 +2781,17 @@ RE_PropertyValue re_property_values[] = {
     { 279, 14,   4}, /* BK */
     { 325, 14,   5}, /* CARRIAGERETURN */
     { 469, 14,   5}, /* CR */
-    {1307, 14,   6}, /* SPACE */
-    {1306, 14,   6}, /* SP */
+    {1309, 14,   6}, /* SPACE */
+    {1308, 14,   6}, /* SP */
     { 597, 14,   7}, /* EXCLAMATION */
     { 596, 14,   7}, /* EX */
-    {1221, 14,   8}, /* QUOTATION */
-    {1220, 14,   8}, /* QU */
+    {1223, 14,   8}, /* QUOTATION */
+    {1222, 14,   8}, /* QU */
     { 195, 14,   9}, /* ALPHABETIC */
     { 187, 14,   9}, /* AL */
-    {1202, 14,  10}, /* PREFIXNUMERIC */
-    {1201, 14,  10}, /* PR */
-    {1199, 14,  11}, /* POSTFIXNUMERIC */
+    {1204, 14,  10}, /* PREFIXNUMERIC */
+    {1203, 14,  10}, /* PR */
+    {1201, 14,  11}, /* POSTFIXNUMERIC */
     {1192, 14,  11}, /* PO */
     {1127, 14,  12}, /* OPENPUNCTUATION */
     {1126, 14,  12}, /* OP */
@@ -2798,7 +2802,7 @@ RE_PropertyValue re_property_values[] = {
     { 724, 14,  15}, /* HYPHEN */
     { 723, 14,  15}, /* HY */
     { 305, 14,  16}, /* BREAKSYMBOLS */
-    {1348, 14,  16}, /* SY */
+    {1350, 14,  16}, /* SY */
     {1093, 14,  17}, /* NUMERIC */
     {1088, 14,  17}, /* NU */
     { 424, 14,  18}, /* CLOSEPUNCTUATION */
@@ -2814,7 +2818,7 @@ RE_PropertyValue re_property_values[] = {
     { 704, 14,  23}, /* HEBREWLETTER */
     { 715, 14,  23}, /* HL */
     { 442, 14,  24}, /* COMPLEXCONTEXT */
-    {1250, 14,  24}, /* SA */
+    {1252, 14,  24}, /* SA */
     { 776, 14,  25}, /* JL */
     { 784, 14,  26}, /* JV */
     { 783, 14,  27}, /* JT */
@@ -2822,50 +2826,50 @@ RE_PropertyValue re_property_values[] = {
     {1084, 14,  28}, /* NS */
     { 184, 14,  29}, /* AKSARA */
     { 183, 14,  29}, /* AK */
-    {1461, 14,  30}, /* VIRAMA */
-    {1460, 14,  30}, /* VI */
+    {1463, 14,  30}, /* VIRAMA */
+    {1462, 14,  30}, /* VI */
     { 186, 14,  31}, /* AKSARASTART */
     { 231, 14,  31}, /* AS */
     { 731, 14,  32}, /* IDEOGRAPHIC */
     { 725, 14,  32}, /* ID */
-    {1462, 14,  33}, /* VIRAMAFINAL */
-    {1459, 14,  33}, /* VF */
-    {1527, 14,  34}, /* ZWSPACE */
-    {1525, 14,  34}, /* ZW */
-    {1526, 14,  35}, /* ZWJ */
+    {1464, 14,  33}, /* VIRAMAFINAL */
+    {1461, 14,  33}, /* VF */
+    {1529, 14,  34}, /* ZWSPACE */
+    {1527, 14,  34}, /* ZW */
+    {1528, 14,  35}, /* ZWJ */
     { 304, 14,  36}, /* BREAKBOTH */
     { 249, 14,  36}, /* B2 */
     { 760, 14,  37}, /* INSEPARABLE */
     { 744, 14,  37}, /* IN */
     { 761, 14,  37}, /* INSEPERABLE */
-    {1486, 14,  38}, /* WORDJOINER */
-    {1483, 14,  38}, /* WJ */
+    {1488, 14,  38}, /* WORDJOINER */
+    {1485, 14,  38}, /* WJ */
     { 547, 14,  39}, /* EBASE */
     { 546, 14,  39}, /* EB */
     { 443, 14,  40}, /* CONDITIONALJAPANESESTARTER */
     { 387, 14,  40}, /* CJ */
     { 674, 14,  41}, /* H2 */
     { 675, 14,  42}, /* H3 */
-    {1345, 14,  43}, /* SURROGATE */
-    {1273, 14,  43}, /* SG */
+    {1347, 14,  43}, /* SURROGATE */
+    {1275, 14,  43}, /* SG */
     { 458, 14,  44}, /* CONTINGENTBREAK */
     { 330, 14,  44}, /* CB */
     { 185, 14,  45}, /* AKSARAPREBASE */
     { 207, 14,  45}, /* AP */
-    {1225, 14,  46}, /* REGIONALINDICATOR */
-    {1231, 14,  46}, /* RI */
+    {1227, 14,  46}, /* REGIONALINDICATOR */
+    {1233, 14,  46}, /* RI */
     { 562, 14,  47}, /* EMODIFIER */
     { 560, 14,  47}, /* EM */
     {1070, 15,   0}, /* NO */
     {1037, 15,   0}, /* N */
-    {1502, 15,   1}, /* YES */
-    {1498, 15,   1}, /* Y */
+    {1504, 15,   1}, /* YES */
+    {1500, 15,   1}, /* Y */
     { 972, 15,   2}, /* MAYBE */
     { 909, 15,   2}, /* M */
     {1070, 16,   0}, /* NO */
     {1037, 16,   0}, /* N */
-    {1502, 16,   1}, /* YES */
-    {1498, 16,   1}, /* Y */
+    {1504, 16,   1}, /* YES */
+    {1500, 16,   1}, /* Y */
     {1075, 17,   0}, /* NONE */
     { 505, 17,   1}, /* DECIMAL */
     { 504, 17,   1}, /* DE */
@@ -3018,22 +3022,22 @@ RE_PropertyValue re_property_values[] = {
     {  31, 18, 142}, /* 1000000000000 */
     {  27, 18, 143}, /* 10000000 */
     {  63, 18, 144}, /* 20000000 */
-    {1441, 19,   0}, /* UNKNOWN */
-    {1529, 19,   0}, /* ZZZZ */
+    {1443, 19,   0}, /* UNKNOWN */
+    {1531, 19,   0}, /* ZZZZ */
     { 437, 19,   1}, /* COMMON */
-    {1528, 19,   1}, /* ZYYY */
+    {1530, 19,   1}, /* ZYYY */
     { 834, 19,   2}, /* LATIN */
     { 854, 19,   2}, /* LATN */
     { 287, 19,   3}, /* BOPOMOFO */
     { 286, 19,   3}, /* BOPO */
     { 752, 19,   4}, /* INHERITED */
-    {1519, 19,   4}, /* ZINH */
-    {1216, 19,   4}, /* QAAI */
+    {1521, 19,   4}, /* ZINH */
+    {1218, 19,   4}, /* QAAI */
     { 659, 19,   5}, /* GREEK */
     { 663, 19,   5}, /* GREK */
     { 462, 19,   6}, /* COPTIC */
     { 461, 19,   6}, /* COPT */
-    {1215, 19,   6}, /* QAAC */
+    {1217, 19,   6}, /* QAAC */
     { 484, 19,   7}, /* CYRILLIC */
     { 496, 19,   7}, /* CYRL */
     { 227, 19,   8}, /* ARMENIAN */
@@ -3042,14 +3046,14 @@ RE_PropertyValue re_property_values[] = {
     { 702, 19,   9}, /* HEBR */
     { 210, 19,  10}, /* ARABIC */
     { 209, 19,  10}, /* ARAB */
-    {1359, 19,  11}, /* SYRIAC */
-    {1358, 19,  11}, /* SYRC */
-    {1400, 19,  12}, /* THAANA */
-    {1399, 19,  12}, /* THAA */
+    {1361, 19,  11}, /* SYRIAC */
+    {1360, 19,  11}, /* SYRC */
+    {1402, 19,  12}, /* THAANA */
+    {1401, 19,  12}, /* THAA */
     {1067, 19,  13}, /* NKO */
     {1068, 19,  13}, /* NKOO */
-    {1253, 19,  14}, /* SAMARITAN */
-    {1254, 19,  14}, /* SAMR */
+    {1255, 19,  14}, /* SAMARITAN */
+    {1256, 19,  14}, /* SAMR */
     { 930, 19,  15}, /* MANDAIC */
     { 929, 19,  15}, /* MAND */
     { 513, 19,  16}, /* DEVANAGARI */
@@ -3062,21 +3066,21 @@ RE_PropertyValue re_property_values[] = {
     { 667, 19,  19}, /* GUJR */
     {1129, 19,  20}, /* ORIYA */
     {1132, 19,  20}, /* ORYA */
-    {1378, 19,  21}, /* TAMIL */
-    {1381, 19,  21}, /* TAML */
-    {1393, 19,  22}, /* TELUGU */
-    {1392, 19,  22}, /* TELU */
+    {1380, 19,  21}, /* TAMIL */
+    {1383, 19,  21}, /* TAML */
+    {1395, 19,  22}, /* TELUGU */
+    {1394, 19,  22}, /* TELU */
     { 801, 19,  23}, /* KANNADA */
     { 822, 19,  23}, /* KNDA */
     { 917, 19,  24}, /* MALAYALAM */
     {1009, 19,  24}, /* MLYM */
-    {1287, 19,  25}, /* SINHALA */
-    {1286, 19,  25}, /* SINH */
-    {1401, 19,  26}, /* THAI */
+    {1289, 19,  25}, /* SINHALA */
+    {1288, 19,  25}, /* SINH */
+    {1403, 19,  26}, /* THAI */
     { 832, 19,  27}, /* LAO */
     { 833, 19,  27}, /* LAOO */
-    {1403, 19,  28}, /* TIBETAN */
-    {1404, 19,  28}, /* TIBT */
+    {1405, 19,  28}, /* TIBETAN */
+    {1406, 19,  28}, /* TIBT */
     {1029, 19,  29}, /* MYANMAR */
     {1036, 19,  29}, /* MYMR */
     { 635, 19,  30}, /* GEORGIAN */
@@ -3091,34 +3095,34 @@ RE_PropertyValue re_property_values[] = {
     { 321, 19,  34}, /* CANS */
     {1105, 19,  35}, /* OGHAM */
     {1104, 19,  35}, /* OGAM */
-    {1246, 19,  36}, /* RUNIC */
-    {1247, 19,  36}, /* RUNR */
-    {1364, 19,  37}, /* TAGALOG */
-    {1398, 19,  37}, /* TGLG */
+    {1248, 19,  36}, /* RUNIC */
+    {1249, 19,  36}, /* RUNR */
+    {1366, 19,  37}, /* TAGALOG */
+    {1400, 19,  37}, /* TGLG */
     { 698, 19,  38}, /* HANUNOO */
     { 695, 19,  38}, /* HANO */
     { 309, 19,  39}, /* BUHID */
     { 308, 19,  39}, /* BUHD */
-    {1366, 19,  40}, /* TAGBANWA */
-    {1365, 19,  40}, /* TAGB */
+    {1368, 19,  40}, /* TAGBANWA */
+    {1367, 19,  40}, /* TAGB */
     { 814, 19,  41}, /* KHMER */
     { 816, 19,  41}, /* KHMR */
     {1019, 19,  42}, /* MONGOLIAN */
     {1018, 19,  42}, /* MONG */
     { 873, 19,  43}, /* LIMBU */
     { 872, 19,  43}, /* LIMB */
-    {1369, 19,  44}, /* TAILE */
-    {1376, 19,  44}, /* TALE */
+    {1371, 19,  44}, /* TAILE */
+    {1378, 19,  44}, /* TALE */
     {1056, 19,  45}, /* NEWTAILUE */
-    {1377, 19,  45}, /* TALU */
+    {1379, 19,  45}, /* TALU */
     { 307, 19,  46}, /* BUGINESE */
     { 306, 19,  46}, /* BUGI */
-    {1370, 19,  47}, /* TAITHAM */
+    {1372, 19,  47}, /* TAITHAM */
     { 831, 19,  47}, /* LANA */
     { 252, 19,  48}, /* BALINESE */
     { 251, 19,  48}, /* BALI */
-    {1320, 19,  49}, /* SUNDANESE */
-    {1319, 19,  49}, /* SUND */
+    {1322, 19,  49}, /* SUNDANESE */
+    {1321, 19,  49}, /* SUND */
     { 260, 19,  50}, /* BATAK */
     { 261, 19,  50}, /* BATK */
     { 867, 19,  51}, /* LEPCHA */
@@ -3129,36 +3133,36 @@ RE_PropertyValue re_property_values[] = {
     { 299, 19,  53}, /* BRAI */
     { 642, 19,  54}, /* GLAGOLITIC */
     { 641, 19,  54}, /* GLAG */
-    {1405, 19,  55}, /* TIFINAGH */
-    {1397, 19,  55}, /* TFNG */
+    {1407, 19,  55}, /* TIFINAGH */
+    {1399, 19,  55}, /* TFNG */
     { 682, 19,  56}, /* HAN */
     { 691, 19,  56}, /* HANI */
     { 714, 19,  57}, /* HIRAGANA */
     { 713, 19,  57}, /* HIRA */
     { 804, 19,  58}, /* KATAKANA */
     { 790, 19,  58}, /* KANA */
-    {1505, 19,  59}, /* YI */
-    {1506, 19,  59}, /* YIII */
+    {1507, 19,  59}, /* YI */
+    {1508, 19,  59}, /* YIII */
     { 884, 19,  60}, /* LISU */
-    {1447, 19,  61}, /* VAI */
-    {1448, 19,  61}, /* VAII */
+    {1449, 19,  61}, /* VAI */
+    {1450, 19,  61}, /* VAII */
     { 254, 19,  62}, /* BAMUM */
     { 253, 19,  62}, /* BAMU */
-    {1351, 19,  63}, /* SYLOTINAGRI */
-    {1350, 19,  63}, /* SYLO */
+    {1353, 19,  63}, /* SYLOTINAGRI */
+    {1352, 19,  63}, /* SYLO */
     {1178, 19,  64}, /* PHAGSPA */
     {1177, 19,  64}, /* PHAG */
-    {1257, 19,  65}, /* SAURASHTRA */
-    {1256, 19,  65}, /* SAUR */
+    {1259, 19,  65}, /* SAURASHTRA */
+    {1258, 19,  65}, /* SAUR */
     { 809, 19,  66}, /* KAYAHLI */
     { 789, 19,  66}, /* KALI */
-    {1228, 19,  67}, /* REJANG */
-    {1238, 19,  67}, /* RJNG */
+    {1230, 19,  67}, /* REJANG */
+    {1240, 19,  67}, /* RJNG */
     { 774, 19,  68}, /* JAVANESE */
     { 773, 19,  68}, /* JAVA */
     { 372, 19,  69}, /* CHAM */
-    {1371, 19,  70}, /* TAIVIET */
-    {1388, 19,  70}, /* TAVT */
+    {1373, 19,  70}, /* TAIVIET */
+    {1390, 19,  70}, /* TAVT */
     { 982, 19,  71}, /* MEETEIMAYEK */
     {1024, 19,  71}, /* MTEI */
     { 877, 19,  72}, /* LINEARB */
@@ -3173,14 +3177,14 @@ RE_PropertyValue re_property_values[] = {
     { 649, 19,  76}, /* GOTH */
     {1114, 19,  77}, /* OLDPERMIC */
     {1175, 19,  77}, /* PERM */
-    {1434, 19,  78}, /* UGARITIC */
-    {1433, 19,  78}, /* UGAR */
+    {1436, 19,  78}, /* UGARITIC */
+    {1435, 19,  78}, /* UGAR */
     {1115, 19,  79}, /* OLDPERSIAN */
-    {1495, 19,  79}, /* XPEO */
+    {1497, 19,  79}, /* XPEO */
     { 511, 19,  80}, /* DESERET */
     { 537, 19,  80}, /* DSRT */
-    {1276, 19,  81}, /* SHAVIAN */
-    {1277, 19,  81}, /* SHAW */
+    {1278, 19,  81}, /* SHAVIAN */
+    {1279, 19,  81}, /* SHAW */
     {1136, 19,  82}, /* OSMANYA */
     {1135, 19,  82}, /* OSMA */
     {1133, 19,  83}, /* OSAGE */
@@ -3189,10 +3193,10 @@ RE_PropertyValue re_property_values[] = {
     { 556, 19,  84}, /* ELBA */
     { 329, 19,  85}, /* CAUCASIANALBANIAN */
     { 178, 19,  85}, /* AGHB */
-    {1466, 19,  86}, /* VITHKUQI */
-    {1465, 19,  86}, /* VITH */
-    {1410, 19,  87}, /* TODHRI */
-    {1411, 19,  87}, /* TODR */
+    {1468, 19,  86}, /* VITHKUQI */
+    {1467, 19,  86}, /* VITH */
+    {1412, 19,  87}, /* TODHRI */
+    {1413, 19,  87}, /* TODR */
     { 876, 19,  88}, /* LINEARA */
     { 874, 19,  88}, /* LINA */
     { 481, 19,  89}, /* CYPRIOT */
@@ -3216,7 +3220,7 @@ RE_PropertyValue re_property_values[] = {
     { 812, 19,  98}, /* KHAROSHTHI */
     { 811, 19,  98}, /* KHAR */
     {1117, 19,  99}, /* OLDSOUTHARABIAN */
-    {1255, 19,  99}, /* SARB */
+    {1257, 19,  99}, /* SARB */
     {1113, 19, 100}, /* OLDNORTHARABIAN */
     {1047, 19, 100}, /* NARB */
     { 933, 19, 101}, /* MANICHAEAN */
@@ -3224,25 +3228,25 @@ RE_PropertyValue re_property_values[] = {
     { 246, 19, 102}, /* AVESTAN */
     { 247, 19, 102}, /* AVST */
     { 759, 19, 103}, /* INSCRIPTIONALPARTHIAN */
-    {1208, 19, 103}, /* PRTI */
+    {1210, 19, 103}, /* PRTI */
     { 758, 19, 104}, /* INSCRIPTIONALPAHLAVI */
     {1181, 19, 104}, /* PHLI */
-    {1210, 19, 105}, /* PSALTERPAHLAVI */
+    {1212, 19, 105}, /* PSALTERPAHLAVI */
     {1182, 19, 105}, /* PHLP */
     {1118, 19, 106}, /* OLDTURKIC */
     {1130, 19, 106}, /* ORKH */
     {1111, 19, 107}, /* OLDHUNGARIAN */
     { 722, 19, 107}, /* HUNG */
     { 692, 19, 108}, /* HANIFIROHINGYA */
-    {1242, 19, 108}, /* ROHG */
+    {1244, 19, 108}, /* ROHG */
     { 624, 19, 109}, /* GARAY */
     { 623, 19, 109}, /* GARA */
-    {1504, 19, 110}, /* YEZIDI */
-    {1503, 19, 110}, /* YEZI */
+    {1506, 19, 110}, /* YEZIDI */
+    {1505, 19, 110}, /* YEZI */
     {1116, 19, 111}, /* OLDSOGDIAN */
-    {1301, 19, 111}, /* SOGO */
-    {1300, 19, 112}, /* SOGDIAN */
-    {1299, 19, 112}, /* SOGD */
+    {1303, 19, 111}, /* SOGO */
+    {1302, 19, 112}, /* SOGDIAN */
+    {1301, 19, 112}, /* SOGD */
     {1119, 19, 113}, /* OLDUYGHUR */
     {1152, 19, 113}, /* OUGR */
     { 383, 19, 114}, /* CHORASMIAN */
@@ -3253,49 +3257,49 @@ RE_PropertyValue re_property_values[] = {
     { 296, 19, 116}, /* BRAH */
     { 787, 19, 117}, /* KAITHI */
     { 825, 19, 117}, /* KTHI */
-    {1303, 19, 118}, /* SORASOMPENG */
-    {1302, 19, 118}, /* SORA */
+    {1305, 19, 118}, /* SORASOMPENG */
+    {1304, 19, 118}, /* SORA */
     { 371, 19, 119}, /* CHAKMA */
     { 315, 19, 119}, /* CAKM */
     { 911, 19, 120}, /* MAHAJANI */
     { 912, 19, 120}, /* MAHJ */
-    {1275, 19, 121}, /* SHARADA */
-    {1280, 19, 121}, /* SHRD */
+    {1277, 19, 121}, /* SHARADA */
+    {1282, 19, 121}, /* SHRD */
     { 818, 19, 122}, /* KHOJKI */
     { 817, 19, 122}, /* KHOJ */
     {1026, 19, 123}, /* MULTANI */
     {1025, 19, 123}, /* MULT */
     { 819, 19, 124}, /* KHUDAWADI */
-    {1284, 19, 124}, /* SIND */
+    {1286, 19, 124}, /* SIND */
     { 652, 19, 125}, /* GRANTHA */
     { 651, 19, 125}, /* GRAN */
-    {1427, 19, 126}, /* TULUTIGALARI */
-    {1428, 19, 126}, /* TUTG */
+    {1429, 19, 126}, /* TULUTIGALARI */
+    {1430, 19, 126}, /* TUTG */
     {1054, 19, 127}, /* NEWA */
-    {1407, 19, 128}, /* TIRHUTA */
-    {1406, 19, 128}, /* TIRH */
-    {1282, 19, 129}, /* SIDDHAM */
-    {1281, 19, 129}, /* SIDD */
+    {1409, 19, 128}, /* TIRHUTA */
+    {1408, 19, 128}, /* TIRH */
+    {1284, 19, 129}, /* SIDDHAM */
+    {1283, 19, 129}, /* SIDD */
     {1011, 19, 130}, /* MODI */
-    {1375, 19, 131}, /* TAKRI */
-    {1374, 19, 131}, /* TAKR */
+    {1377, 19, 131}, /* TAKRI */
+    {1376, 19, 131}, /* TAKR */
     { 180, 19, 132}, /* AHOM */
     { 530, 19, 133}, /* DOGRA */
     { 529, 19, 133}, /* DOGR */
-    {1477, 19, 134}, /* WARANGCITI */
-    {1476, 19, 134}, /* WARA */
+    {1479, 19, 134}, /* WARANGCITI */
+    {1478, 19, 134}, /* WARA */
     { 528, 19, 135}, /* DIVESAKURU */
     { 525, 19, 135}, /* DIAK */
     {1045, 19, 136}, /* NANDINAGARI */
     {1044, 19, 136}, /* NAND */
-    {1516, 19, 137}, /* ZANABAZARSQUARE */
-    {1517, 19, 137}, /* ZANB */
-    {1305, 19, 138}, /* SOYOMBO */
-    {1304, 19, 138}, /* SOYO */
+    {1518, 19, 137}, /* ZANABAZARSQUARE */
+    {1519, 19, 137}, /* ZANB */
+    {1307, 19, 138}, /* SOYOMBO */
+    {1306, 19, 138}, /* SOYO */
     {1168, 19, 139}, /* PAUCINHAU */
     {1167, 19, 139}, /* PAUC */
-    {1324, 19, 140}, /* SUNUWAR */
-    {1323, 19, 140}, /* SUNU */
+    {1326, 19, 140}, /* SUNUWAR */
+    {1325, 19, 140}, /* SUNU */
     { 271, 19, 141}, /* BHAIKSUKI */
     { 272, 19, 141}, /* BHKS */
     { 962, 19, 142}, /* MARCHEN */
@@ -3308,7 +3312,7 @@ RE_PropertyValue re_property_values[] = {
     { 915, 19, 145}, /* MAKA */
     { 808, 19, 146}, /* KAWI */
     { 471, 19, 147}, /* CUNEIFORM */
-    {1496, 19, 147}, /* XSUX */
+    {1498, 19, 147}, /* XSUX */
     { 483, 19, 148}, /* CYPROMINOAN */
     { 467, 19, 148}, /* CPMN */
     { 553, 19, 149}, /* EGYPTIANHIEROGLYPHS */
@@ -3319,8 +3323,8 @@ RE_PropertyValue re_property_values[] = {
     { 668, 19, 151}, /* GUKH */
     {1022, 19, 152}, /* MRO */
     {1023, 19, 152}, /* MROO */
-    {1383, 19, 153}, /* TANGSA */
-    {1409, 19, 153}, /* TNSA */
+    {1385, 19, 153}, /* TANGSA */
+    {1411, 19, 153}, /* TNSA */
     { 259, 19, 154}, /* BASSAVAH */
     { 258, 19, 154}, /* BASS */
     {1159, 19, 155}, /* PAHAWHHMONG */
@@ -3331,21 +3335,21 @@ RE_PropertyValue re_property_values[] = {
     { 979, 19, 157}, /* MEDF */
     { 991, 19, 158}, /* MIAO */
     {1191, 19, 158}, /* PLRD */
-    {1384, 19, 159}, /* TANGUT */
-    {1382, 19, 159}, /* TANG */
+    {1386, 19, 159}, /* TANGUT */
+    {1384, 19, 159}, /* TANG */
     {1097, 19, 160}, /* NUSHU */
     {1085, 19, 160}, /* NSHU */
     { 813, 19, 161}, /* KHITANSMALLSCRIPT */
     { 821, 19, 161}, /* KITS */
     { 541, 19, 162}, /* DUPLOYAN */
     { 540, 19, 162}, /* DUPL */
-    {1283, 19, 163}, /* SIGNWRITING */
-    {1274, 19, 163}, /* SGNW */
+    {1285, 19, 163}, /* SIGNWRITING */
+    {1276, 19, 163}, /* SGNW */
     {1100, 19, 164}, /* NYIAKENGPUACHUEHMONG */
     { 718, 19, 164}, /* HMNP */
-    {1421, 19, 165}, /* TOTO */
-    {1475, 19, 166}, /* WANCHO */
-    {1480, 19, 166}, /* WCHO */
+    {1423, 19, 165}, /* TOTO */
+    {1477, 19, 166}, /* WANCHO */
+    {1482, 19, 166}, /* WCHO */
     {1042, 19, 167}, /* NAGMUNDARI */
     {1041, 19, 167}, /* NAGM */
     {1121, 19, 168}, /* OLONAL */
@@ -3357,26 +3361,26 @@ RE_PropertyValue re_property_values[] = {
     { 806, 19, 171}, /* KATAKANAORHIRAGANA */
     { 720, 19, 171}, /* HRKT */
     {1137, 20,   0}, /* OTHER */
-    {1497, 20,   0}, /* XX */
-    {1306, 20,   1}, /* SP */
+    {1499, 20,   0}, /* XX */
+    {1308, 20,   1}, /* SP */
     { 871, 20,   2}, /* LF */
     { 469, 20,   3}, /* CR */
-    {1316, 20,   4}, /* STERM */
-    {1315, 20,   4}, /* ST */
+    {1318, 20,   4}, /* STERM */
+    {1317, 20,   4}, /* ST */
     { 422, 20,   5}, /* CLOSE */
     { 421, 20,   5}, /* CL */
-    {1260, 20,   6}, /* SCONTINUE */
-    {1259, 20,   6}, /* SC */
+    {1262, 20,   6}, /* SCONTINUE */
+    {1261, 20,   6}, /* SC */
     { 240, 20,   7}, /* ATERM */
     { 235, 20,   7}, /* AT */
     {1093, 20,   8}, /* NUMERIC */
     {1088, 20,   8}, /* NU */
-    {1443, 20,   9}, /* UPPER */
-    {1442, 20,   9}, /* UP */
+    {1445, 20,   9}, /* UPPER */
+    {1444, 20,   9}, /* UP */
     { 892, 20,  10}, /* LOWER */
     { 889, 20,  10}, /* LO */
-    {1271, 20,  11}, /* SEP */
-    {1265, 20,  11}, /* SE */
+    {1273, 20,  11}, /* SEP */
+    {1267, 20,  11}, /* SE */
     { 616, 20,  12}, /* FORMAT */
     { 614, 20,  12}, /* FO */
     {1120, 20,  13}, /* OLETTER */
@@ -3384,16 +3388,16 @@ RE_PropertyValue re_property_values[] = {
     { 599, 20,  14}, /* EXTEND */
     { 596, 20,  14}, /* EX */
     {1137, 21,   0}, /* OTHER */
-    {1497, 21,   0}, /* XX */
+    {1499, 21,   0}, /* XX */
     { 871, 21,   1}, /* LF */
     {1055, 21,   2}, /* NEWLINE */
     {1069, 21,   2}, /* NL */
     { 469, 21,   3}, /* CR */
-    {1488, 21,   4}, /* WSEGSPACE */
+    {1490, 21,   4}, /* WSEGSPACE */
     { 535, 21,   5}, /* DOUBLEQUOTE */
     { 536, 21,   5}, /* DQ */
-    {1285, 21,   6}, /* SINGLEQUOTE */
-    {1312, 21,   6}, /* SQ */
+    {1287, 21,   6}, /* SINGLEQUOTE */
+    {1314, 21,   6}, /* SQ */
     { 993, 21,   7}, /* MIDNUM */
     {1010, 21,   7}, /* MN */
     { 994, 21,   8}, /* MIDNUMLET */
@@ -3411,11 +3415,11 @@ RE_PropertyValue re_property_values[] = {
     { 599, 21,  14}, /* EXTEND */
     { 704, 21,  15}, /* HEBREWLETTER */
     { 715, 21,  15}, /* HL */
-    {1526, 21,  16}, /* ZWJ */
+    {1528, 21,  16}, /* ZWJ */
     { 804, 21,  17}, /* KATAKANA */
     { 785, 21,  17}, /* KA */
-    {1225, 21,  18}, /* REGIONALINDICATOR */
-    {1231, 21,  18}, /* RI */
+    {1227, 21,  18}, /* REGIONALINDICATOR */
+    {1233, 21,  18}, /* RI */
     { 547, 21,  19}, /* EBASE */
     { 546, 21,  19}, /* EB */
     { 548, 21,  20}, /* EBASEGAZ */
@@ -22580,6 +22584,299 @@ RE_UINT32 re_get_posix_punct(RE_UINT32 codepoint) {
     return (v >> offset) & 0x1;
 }
 
+/* Posix_Space. */
+RE_UINT32 re_get_posix_space(RE_UINT32 codepoint) {
+    if (0x09 <= codepoint && codepoint <= 0x0D)
+        return 1;
+    if (codepoint == 0x20)
+        return 1;
+
+    return 0;
+}
+
+/* Posix_Word. */
+static RE_UINT8 re_posix_word_table_1[] = {
+     0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 13, 13,
+    13, 13, 13, 14, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13,
+    13, 13, 13, 13, 13, 13, 13, 13, 13, 15, 16, 13, 13, 13, 13, 13,
+    13, 13, 13, 13, 13, 17, 10, 10, 10, 10, 10, 10, 10, 10, 18, 19,
+    20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 10, 30, 13, 31, 13, 13,
+    32, 33, 10, 10, 10, 10, 10, 10, 34, 10, 35, 36, 13, 13, 13, 13,
+    13, 37, 13, 38, 10, 10, 10, 10, 10, 10, 10, 39, 40, 10, 10, 41,
+    10, 10, 10, 10, 10, 42, 10, 43, 44, 45, 46, 47, 48, 10, 10, 10,
+    13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13,
+    13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13,
+    13, 13, 13, 13, 13, 13, 13, 13, 13, 49, 13, 13, 13, 50, 51, 13,
+    13, 13, 13, 52, 13, 13, 13, 13, 13, 13, 53, 54, 10, 10, 55, 10,
+    13, 13, 13, 13, 56, 13, 13, 13, 57, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+};
+
+static RE_UINT16 re_posix_word_table_2[] = {
+      0,   1,   2,   3,   0,   4,   5,   5,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   7,   8,   0,   0,   9,  10,  11,  12,   6,  13,
+      6,   6,   6,   6,  14,   6,   6,   6,   6,  15,  16,   6,  17,  18,  19,  20,
+     21,   6,  22,  23,   6,   6,  24,  25,  26,   6,  27,   6,   6,  28,  29,  30,
+     31,  32,  33,  34,  35,   6,  36,  37,   6,  38,  39,  40,  41,  42,  43,  44,
+     45,  46,  47,  48,  49,  50,  51,  52,  53,  50,  54,  55,  56,  57,  58,   0,
+     59,  60,  61,  62,  63,  64,  65,  66,  59,  67,  68,  69,  70,  71,  72,  73,
+     74,  75,  76,   0,  77,  78,  79,   0,  80,   0,  81,  82,  83,  84,   0,   0,
+      6,  85,  26,   6,  86,   6,  87,  88,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,  89,   6,  90,  91,  92,   6,  93,   6,  75,   0,  94,   6,   6,  95,
+     74,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,  96,   3,   6,   6,  97,  98,  99,  99, 100,   6, 101, 102,   0,
+      0,   6,   6,  33,   6,  34,   6, 103, 104, 105,  26, 106,   6, 107, 108,   0,
+    109,   6, 104, 110,   0, 111, 112,   0,   6, 113, 114,   0,   6, 115,   6, 116,
+      6, 117, 118, 119,  34,  67,   0, 120,   6,   6,   6,   6,   6,   6, 121, 122,
+      6,   6,   6,   6,   6,   6,   6,   6,  95,   6, 123, 119,   6, 124, 125, 126,
+      0,   0,   0, 127, 128,   0,   0,   0, 129, 130, 131,   6,  17,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0, 132,   6, 108,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6,   6,   6,   6,   6, 133,   6,  87,   6, 134, 117, 135, 135,   6,
+      0, 136,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+    137, 138,  74,   6, 139,  74,   6,  88, 140,  15,   6,   6, 141,   6,   0,  26,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,  32,   0,  26, 119,   6,   6,   6,   6,   6,   6,   6,   6,
+    142, 143,   6, 144,   6,   6,   6,  94, 145, 146,   6,   6, 147,   6, 148, 149,
+    150, 151,   6,  99,   6,   6, 152, 153,  29,  34, 154,  84,   6, 155, 136, 156,
+      6, 117, 157, 158,   6, 104, 159, 160, 161, 162,  88, 163,   6,   6,   6, 164,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6, 165, 166, 109,
+      0,   0,   0,   0,   0,   0,   0,   0,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6, 167,   6,   6, 168,   0, 169, 170, 171,   6,   6,  28, 121,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6, 119,  26,   6, 172,   6, 151, 173,
+      0,   0,   0, 174,   6,   6,   6,  84,   0,   3,   3, 175,   6, 104, 176,   0,
+    177, 178, 179,   0,   6,   6,   6,  75,   0,   0,   6, 122,   0,   0,   0,   0,
+      0,   0,   0,   0,  84,   6, 180,   0,   6,  27,  34,  75, 119,   6, 181,   0,
+      6,   6,   6,   6, 119,  26, 182, 109,   6, 183,   6, 184, 185, 186,   6,  99,
+      6,   6,   6,   6,   6,   6,   6,   6,   6, 117, 103, 151, 150, 187,   0,   0,
+    188, 189, 103, 117, 104,   0,   0, 190, 103, 168,   0,   0,   6, 191,   0,   0,
+    192, 103,   0,  84,  84,   0,  81, 193,   6, 103, 103, 154,  28,   0,   0,   0,
+      6,   6,  17,   0,   6, 154,   6, 154,   6, 151,  29, 194, 195,   0,   0,   0,
+      0,   0,   0,   0,   6, 196, 197, 198,  84, 199, 195,  26, 200,  26, 193, 117,
+      6,   6, 195, 201,   6,  33, 202,  17,   6, 154, 203, 204,   6,   6, 205,   0,
+    206, 207, 200,   0, 208, 209,   6,  17,  41,  50, 210,  62, 211,  13, 212,   0,
+      6,   6, 213, 200,   6,   6, 214,   0,   0,   0,   0,   0,   6, 215, 216,   0,
+      6, 104, 217,   0,   6, 218,   0,   0,  67, 164, 219,   0,   0,   0,   0,   0,
+      6,  33,   0,   0,   0,   6,   6, 220, 221, 222, 223,   0,   0, 224,  31, 225,
+      6, 226,  26,   6, 227,  26,   6,  33,   0,   0,   0,   0,   0,   0,   6,  80,
+    228, 229,  80, 149, 172, 230,   0,   0, 231, 232, 233, 234, 235,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0, 117, 236, 237,  80,   0,   0, 238,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6, 168,   0,   0,   0,
+      6,   6,   6, 141,   6,   6,   6,   6,   6,   6,  62,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  26,   6,   6, 180,
+      6,  94, 239,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,  75,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6, 219,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   6, 141,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,  33, 104,  26,   6, 104,  26, 157,   6,  94,  62, 240,  94,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   6,  32,   0,   0,   0,   0,
+      0,   0,   6,   6,   0,   0,   0,   0,   6,   6, 241,   6, 242,   0,   0, 243,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6, 244,
+      6,   6,   6,   6,   6,   6, 103, 220,  17,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 245,
+      6,   6,   6,   6,   6,   6,   6,   6,   6, 246, 247, 203,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6, 109,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6, 248, 249,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6, 250,   6, 251, 252, 253,   6, 254, 255, 256,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6, 257, 258,  88, 250, 250, 259, 259, 228, 228, 260,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0, 104, 261,   0,   0,   0,   0,   0,   0,
+    262, 263,   6, 157, 136,   0,   0,   0,   6, 264, 265,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,  26, 157,   6, 266,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,  26, 266,   0,   0,   0,   0,   0,   0,  26, 267,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 268,
+      6,   6,   6,   6,   6,   6, 193,   0,   6,   6, 269,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+    253, 270, 271, 272, 273, 274,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,  26, 163, 163, 108,   0,   0,   0,
+      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   0,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6, 168,   6,   6,   6,   6,   6,   6,
+    119,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6, 275,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6, 276,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6, 119,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+    119,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,  34,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,
+      6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,  94,   0,   0
+};
+
+static RE_UINT8 re_posix_word_table_3[] = {
+      0,   0,   0,   0,   0,   0, 255,   3, 254, 255, 255, 135, 254, 255, 255,   7,
+      0,   4,  32,   4, 255, 255, 127, 255, 255, 255, 255, 255, 195, 255,   3,   0,
+     31,  80,   0,   0,  32,   0,   0,   0, 248, 255, 223, 188,  64, 215, 255, 255,
+    251, 255, 255, 255, 255, 255, 191, 255,   3, 252, 255, 255, 255, 255, 254, 255,
+    255, 255, 127,   2, 255,   1,   0,   0,   0,   0, 255, 191, 182,   0, 255, 255,
+    255, 135,   7,   0,   0,   0, 255,   7, 255, 255, 255, 254,   0, 192, 255, 255,
+    255, 255, 239,  31, 254, 225,   0, 156,   0,   0, 255, 255,   0, 224, 255, 255,
+    255, 255,   3,   0,   0, 252, 255, 255, 255,   7,  48,   4, 255, 255, 255, 252,
+    255,  31,   0,   0, 255, 255, 255,   1, 255,   7, 255, 255, 255, 126, 128,   0,
+    255,   3, 240, 255, 248,   3, 255, 255, 255, 255, 255, 239, 255, 223, 225, 255,
+     15,   0, 254, 255, 239, 159, 249, 255, 255, 253, 197, 227, 159,  89, 128, 176,
+     15,   0,   3,  16, 238, 135, 249, 255, 255, 253, 109, 195, 135,  25,   2,  94,
+      0,   0,  63,   0, 238, 191, 251, 255, 255, 253, 237, 227, 191,  27,   1,   0,
+     15,   0,   0,  30, 238, 159, 249, 255, 159,  25, 192, 176,  15,   0,   2,   0,
+    236, 199,  61, 214,  24, 199, 255, 195, 199,  29, 129,   0, 255, 223, 253, 255,
+    255, 253, 255, 227, 223,  29,  96,  39,  15,   0,   0,   0, 239, 223, 253, 255,
+    255, 253, 239, 227, 223,  29,  96,  96,  15,   0,  14,   0, 255, 255, 255, 231,
+    223,  93, 240, 128,  15,   0,   0, 252, 238, 255, 127, 252, 255, 255, 251,  47,
+    127, 128,  95, 255,   0,   0,  12,   0, 254, 255, 255, 255, 255, 255, 255,   7,
+    127,  32,   0,   0, 214, 247, 255, 255, 175, 255, 255,  59,  95,  32,   0, 240,
+      1,   0,   0,   0, 255, 254, 255, 255, 255,  31, 254, 255,  15, 255, 255, 254,
+    255, 255, 255,  31, 255, 255, 127, 249, 255, 255,   0,  60, 191,  32, 255, 255,
+    255, 255, 255, 247, 255,  61, 127,  61, 255,  61, 255, 255, 255, 255,  61, 127,
+     61, 255, 127, 255, 255, 255,  61, 255, 255, 255,   0,   0, 255, 255,  63,  63,
+    255, 159, 255, 255, 255, 199, 255,   1, 255, 255,  15, 128, 255, 255,  15,   0,
+    255, 223,  13,   0, 255, 255, 207, 255, 255,   1, 128,  16, 255, 255,  63,   0,
+    255, 255, 255, 127, 255,  15, 255,   1, 255,  63,  31,   0, 255,  15, 255, 255,
+    255,   3,   0,   0, 255, 255, 255,  15, 254, 255,  31,   0, 128,   0,   0, 128,
+      1, 112,   0,   0, 255, 255, 239, 255, 239,  31,   0,   0, 255, 243,   0, 252,
+    191, 255,   3,   0, 255, 255, 127,   0,   0, 224,   0, 252, 255, 255, 255,  63,
+      0, 222, 111,   4,   0,   0, 248, 255, 255, 255,  31,   0,  63,  63, 255, 170,
+    255, 255, 223,  95, 220,  31, 207,  15, 255,  31, 220,  31,   0,   0,   2, 128,
+      0,   0, 255,  31, 132, 252,  47,  62,  80, 189, 255, 243, 224,  67,   0,   0,
+      0,   0, 192, 255,  31, 120,  12,   0, 255, 128,   0,   0, 127, 127, 127, 127,
+      0, 128,   0,   0, 224,   0,   0,   0, 254,   3,  62,  31, 255, 255, 127, 224,
+    224, 255, 255, 255, 255, 127,   0,   0, 255,  31, 255, 255,   0,  12,   0,   0,
+    255, 127, 240, 143,   0,   0, 128, 255, 252, 255, 255, 255, 255, 249, 255, 255,
+    255,  63, 235,  31,   0,   0, 252, 255, 191, 255, 255, 255, 255,   0,   0,   0,
+     47,   0,   0,   0,   0,   0, 252, 232, 255, 255,   7,   0, 255, 255, 247, 255,
+    255, 255,   0, 124, 255,  63,   0,   0, 255, 255, 127, 252,   5,   0,   0,  56,
+    255, 255,  60,   0, 126, 126, 126,   0, 127, 127, 255, 255, 255,   3, 255, 255,
+    255,   7,   0,   0,  15,   0, 255, 255, 127, 248, 255, 255, 255,  63, 255, 255,
+    255, 255, 255,   3, 127,   0, 248, 224, 255, 253, 127,  95, 219, 255, 255, 255,
+    255, 255, 252, 255,   0,   0, 255,  15,   0,   0, 223, 255, 192, 255, 255, 255,
+    252, 252, 252,  28, 255, 239, 255, 255, 127, 255, 255, 183, 255,  63, 255,  63,
+    255, 255,   1,   0,  15, 255,  62,   0, 255, 255,  15, 255, 255,   0, 255, 255,
+     15,   0, 255, 247, 255, 247, 183, 255, 251, 255, 251,  27, 255, 255, 253,   7,
+     63, 253, 255, 255, 255, 255, 191, 145, 255, 255,  55,   0, 255, 255, 255, 192,
+    111, 240, 239, 254,  31,   0,   0,   0,  63, 130, 255, 255,  63,   0,   0,   0,
+    255,  27,   3,   0,  28,   0,   0,   0,   0,   0,   0,  16, 128,   0, 255, 255,
+      3,   0,   0,   0,   0,   0,  62,   0,   4,   0, 255, 255, 240,   0, 255, 255,
+    255, 255,  71,   0,  30, 192,   0,  20, 255, 255, 251, 255, 255, 255, 159, 192,
+    127, 189, 255, 191, 255,   1, 255, 255, 159,  25, 129, 224, 255,  75, 255, 255,
+    165,  55,  10,   0, 187,   7,   0, 128, 179,   0,   0,   0, 255, 255,  63, 127,
+      0,   0,   0,  63,  17,   0,   0,   0, 255, 255,  63,   1, 127,   0,   0,   0,
+      0,   0,   0, 128, 127, 242, 111, 255, 255, 255, 191, 153,   7,   0,   0,   0,
+    255, 252, 255, 255,  26,   0,   0,   0, 255, 255, 231, 127, 255, 255, 255,  32,
+    255, 253, 255, 255, 255, 255, 127, 127, 255, 254, 127,   0, 127, 251, 255, 255,
+    255, 255, 127, 180, 203,   0,   0,   0, 191, 253, 255, 255, 255, 127, 123,   1,
+    255, 255, 253, 255, 255, 255, 255, 199,   0,   0,   1,   0, 126,   0,   0,   0,
+    248, 255, 255, 224, 255, 135, 255, 255, 255, 128, 255, 255,  11,   0,   3,   0,
+    255, 255, 255,   0,   0,   0, 239, 111,   7,   0,   4,   0,   0,   0,  39,   0,
+    255,   7, 255,  31, 255,   1, 255,  67, 255, 255, 223, 255, 255, 255, 255, 223,
+    100, 222, 255, 235, 239, 255, 255, 255, 191, 231, 223, 223, 255, 255, 255, 123,
+     95, 252, 253, 255,  63, 255, 255, 255, 253, 255, 255, 247, 255, 127, 255, 255,
+    247,  15,   0,   0, 224,   7,   0,   0, 127, 255, 255, 249, 219,   7, 255, 255,
+    255,  31, 128,  63,   0,  64,   0,   0, 255,  15,   0,   0, 255,  63,   1,   0,
+    127, 111, 255, 127, 143,   8,   0,   0, 150, 254, 247,  10, 132, 234, 150, 170,
+    150, 247, 247,  94, 255, 251, 255,  15, 238, 251, 255,  15,   3,   0, 255, 255,
+      1,   0, 255, 255
+};
+
+RE_UINT32 re_get_posix_word(RE_UINT32 codepoint) {
+    RE_UINT32 field_2;
+    RE_UINT32 field_1;
+    RE_UINT32 field_0;
+    RE_UINT32 offset;
+    RE_UINT32 v;
+
+    field_2 = codepoint >> 10;
+    field_1 = (codepoint >> 5) & 0x1F;
+    field_0 = (codepoint >> 3) & 0x3;
+    offset = codepoint & 0x7;
+
+    v = re_posix_word_table_1[field_2];
+    v = re_posix_word_table_2[(v << 5) | field_1];
+    v = re_posix_word_table_3[(v << 2) | field_0];
+
+    return (v >> offset) & 0x1;
+}
+
 /* Posix_XDigit. */
 RE_UINT32 re_get_posix_xdigit(RE_UINT32 codepoint) {
     if (0x30 <= codepoint && codepoint <= 0x39)
@@ -31374,6 +31671,8 @@ RE_GetPropertyFunc re_get_property[] = {
     re_get_posix_alnum,
     re_get_posix_digit,
     re_get_posix_punct,
+    re_get_posix_space,
+    re_get_posix_word,
     re_get_posix_xdigit,
     re_get_prepended_concatenation_mark,
     re_get_print,

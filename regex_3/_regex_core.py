@@ -1241,7 +1241,11 @@ def parse_escape(source, info, in_set):
             if value:
                 return value
 
-        value = CHARSET_ESCAPES.get(ch)
+        if info.flags & ASCII:
+            value = ASCII_CHARSET_ESCAPES.get(ch)
+        else:
+            value = CHARSET_ESCAPES.get(ch)
+
         if value:
             return value
 
@@ -4477,6 +4481,16 @@ CHARSET_ESCAPES = {
     "w": lookup_property(None, "Word", True),
     "W": lookup_property(None, "Word", False),
 }
+
+ASCII_CHARSET_ESCAPES = dict(CHARSET_ESCAPES)
+ASCII_CHARSET_ESCAPES.update({
+    "d": lookup_property(None, "PosixDigit", True),
+    "D": lookup_property(None, "PosixDigit", False),
+    "s": lookup_property(None, "PosixSpace", True),
+    "S": lookup_property(None, "PosixSpace", False),
+    "w": lookup_property(None, "PosixWord", True),
+    "W": lookup_property(None, "PosixWord", False),
+})
 
 # Positional escape sequences.
 POSITION_ESCAPES = {

@@ -1,3 +1,11 @@
+Version: 2025.7.29
+
+    Git issue 572: Inline ASCII modifier doesn't seem to affect anything
+
+Version: 2025.5.19
+
+    Changed how main.yml skips unwanted Arch builds.
+
 Version: 2025.5.18
 
     Updated main.yml to build Windows ARM64/aarch64 wheel.
