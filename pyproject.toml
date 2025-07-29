@@ -10,7 +10,7 @@ readme = "README.rst"
 authors = [
     {name = "Matthew Barnett", email = "regex@mrabarnett.plus.com"},
 ]
-license = "Apache-2.0"
+license = {file = "LICENSE.txt"}
 
 classifiers = [
     "Development Status :: 5 - Production/Stable",
