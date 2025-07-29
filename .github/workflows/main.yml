@@ -33,6 +33,28 @@ jobs:
           python -m pip install -vv .
           python -m unittest -v regex.test_regex
 
+  # Build source distribution
+  build_source:
+    name: Build Source
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VER }}
+
+      - name: Build source distribution
+        run: |
+          python setup.py sdist --formats=gztar
+
+      - name: Upload source distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: regex-files-source
+          path: dist/*.tar.gz
+
   # Build Linux/macOS/Windows wheels.
   build_wheels:
     name: Build ${{ matrix.platform }} wheels
@@ -107,12 +129,6 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.1.2
 
-      - name: Upload source distribution
-        uses: actions/upload-artifact@v4
-        with:
-          name: regex-files-dist
-          path: dist/*.tar.gz
-
       - name: Upload manylinux1_x86_64 wheels
         uses: actions/upload-artifact@v4
         with:
@@ -129,6 +145,9 @@ jobs:
       matrix:
         arch: [aarch64, ppc64le, s390x]
 
+    env:
+      CIBW_ARCHS_LINUX: ${{ matrix.arch }}
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -138,14 +157,10 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
         with:
-          platforms: all
+          platforms: ${{ matrix.arch }}
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.1.2
-        with:
-          CIBW_ARCHS_LINUX: ${{ matrix.arch }}
-          # Building in QEMU is very slow, so parallelize the tasks.
-          CIBW_SKIP: "*musllinux* *manylinux*"
 
       - name: Upload ${{ matrix.arch }} wheels
         uses: actions/upload-artifact@v4
@@ -156,7 +171,7 @@ jobs:
   # Upload to PyPI
   upload_pypi:
     name: Publish to PyPI
-    needs: [build_wheels, build_in_manylinux2014, build_arch_wheels]
+    needs: [build_source, build_wheels, build_in_manylinux2014, build_arch_wheels]
     runs-on: ubuntu-latest
 
     steps:
