@@ -1,3 +1,11 @@
+Version: 2025.7.31
+
+    Further updates to main.yml.
+
+Version: 2025.7.30
+
+    Updated main.yml and pyproject.toml.
+
 Version: 2025.7.29
 
     Git issue 572: Inline ASCII modifier doesn't seem to affect anything
