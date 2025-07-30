@@ -1,16 +1,17 @@
 [build-system]
-requires = ["setuptools > 61.0"]
+requires = ["setuptools > 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "regex"
-version = "2025.7.31"
+version = "2025.7.32"
 description = "Alternative regular expression module, to replace re."
 readme = "README.rst"
 authors = [
     {name = "Matthew Barnett", email = "regex@mrabarnett.plus.com"},
 ]
-license = {file = "LICENSE.txt"}
+license = "Apache-2.0 AND CNRI-Python"
+license-files = ["LICENSE.txt"]
 
 classifiers = [
     "Development Status :: 5 - Production/Stable",

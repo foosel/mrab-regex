@@ -4373,6 +4373,10 @@ thing
         self.assertEqual(bool(regex.match(r'\d', '\uFF19')), True)
         self.assertEqual(bool(regex.match(r'(?a:\d)', '\uFF19')), False)
 
+        # Git issue 580: Regression in v2025.7.31: \P{L} no longer matches in simple patterns
+        self.assertEqual(bool(regex.match(r"\A\P{L}?\p{L}", "hello,")), True)
+        self.assertEqual(bool(regex.fullmatch(r"\A\P{L}*(?P<w>\p{L}+)\P{L}*\Z", "hello,")), True)
+
     def test_fuzzy_ext(self):
         self.assertEqual(bool(regex.fullmatch(r'(?r)(?:a){e<=1:[a-z]}', 'e')),
           True)
