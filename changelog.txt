@@ -1,3 +1,7 @@
+Version: 2025.7.33
+
+    Updated main.yml and pyproject.toml.
+
 Version: 2025.7.32
 
     Git issue 580: Regression in v2025.7.31: \P{L} no longer matches in simple patterns
