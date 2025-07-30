@@ -1,3 +1,7 @@
+Version: 2025.7.34
+
+    Git issue 575: Issues with ASCII/Unicode modifiers
+
 Version: 2025.7.33
 
     Updated main.yml and pyproject.toml.

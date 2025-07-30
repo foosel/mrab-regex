@@ -58,6 +58,9 @@
 typedef RE_UINT32 RE_CODE;
 typedef unsigned char BYTE;
 
+/* An unassigned codepoint. */
+#define UNASSIGNED_CODEPOINT 0x10FFFF
+
 /* Properties in the General Category. */
 #define RE_PROP_GC_CN ((RE_PROP_GC << 16) | RE_PROP_CN)
 #define RE_PROP_GC_LU ((RE_PROP_GC << 16) | RE_PROP_LU)
@@ -156,6 +159,11 @@ typedef RE_UINT32 RE_STATUS_T;
 
 /* Various flags stored in a node status member. */
 #define RE_STATUS_SHIFT 11
+
+#define RE_ENCODING_SHIFT 16
+#define ASCII_ENCODING 1
+#define UNICODE_ENCODING 2
+#define ENCODING_KIND(NODE) (((NODE)->status >> RE_ENCODING_SHIFT) & 0x3)
 
 #define RE_STATUS_FUZZY (RE_FUZZY_OP << RE_STATUS_SHIFT)
 #define RE_STATUS_REVERSE (RE_REVERSE_OP << RE_STATUS_SHIFT)
@@ -809,12 +817,8 @@ Py_LOCAL_INLINE(BOOL) unicode_has_property(RE_CODE property, Py_UCS4 ch);
 /* Checks whether a character has a property. */
 Py_LOCAL_INLINE(BOOL) ascii_has_property(RE_CODE property, Py_UCS4 ch) {
     if (ch > RE_ASCII_MAX) {
-        /* Outside the ASCII range. */
-        RE_UINT32 value;
-
-        value = property & 0xFFFF;
-
-        return value == 0;
+        /* Treat it as an unassigned codepoint. */
+        ch = UNASSIGNED_CODEPOINT;
     }
 
     return unicode_has_property(property, ch);
@@ -824,19 +828,12 @@ Py_LOCAL_INLINE(BOOL) ascii_has_property(RE_CODE property, Py_UCS4 ch) {
 Py_LOCAL_INLINE(BOOL) ascii_has_property_ign(RE_CODE property, Py_UCS4 ch) {
     RE_UINT32 prop;
 
+    if (ch > RE_ASCII_MAX) {
+        /* Treat it as an unassigned codepoint. */
+        ch = UNASSIGNED_CODEPOINT;
+    }
+
     prop = property >> 16;
-
-    /* We are working with ASCII. */
-    if (property == RE_PROP_GC_LU || property == RE_PROP_GC_LL || property ==
-      RE_PROP_GC_LT) {
-        RE_UINT32 value;
-
-        value = re_get_general_category(ch);
-
-        return value == RE_PROP_LU || value == RE_PROP_LL || value ==
-          RE_PROP_LT;
-    } else if (prop == RE_PROP_UPPERCASE || prop == RE_PROP_LOWERCASE)
-        return (BOOL)re_get_cased(ch);
 
     /* The property is case-insensitive. */
     return ascii_has_property(property, ch);
@@ -2902,7 +2899,14 @@ Py_LOCAL_INLINE(BOOL) matches_CHARACTER_IGN(RE_EncodingTable* encoding,
 /* Checks whether a character has a property. */
 Py_LOCAL_INLINE(BOOL) matches_PROPERTY(RE_EncodingTable* encoding,
   RE_LocaleInfo* locale_info, RE_Node* node, Py_UCS4 ch) {
-    return encoding->has_property(locale_info, node->values[0], ch);
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        return ascii_encoding.has_property(locale_info, node->values[0], ch);
+    case UNICODE_ENCODING:
+        return unicode_encoding.has_property(locale_info, node->values[0], ch);
+    default:
+        return encoding->has_property(locale_info, node->values[0], ch);
+    }
 }
 
 /* Checks whether a character has a property, ignoring case. */
@@ -2913,6 +2917,15 @@ Py_LOCAL_INLINE(BOOL) matches_PROPERTY_IGN(RE_EncodingTable* encoding,
 
     property = node->values[0];
     prop = property >> 16;
+
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        encoding = &ascii_encoding;
+        break;
+    case UNICODE_ENCODING:
+        encoding = &unicode_encoding;
+        break;
+    }
 
     /* We need to do special handling of case-sensitive properties according to
      * the 'encoding'.
@@ -3000,7 +3013,15 @@ Py_LOCAL_INLINE(BOOL) matches_member(RE_EncodingTable* encoding, RE_LocaleInfo*
         /* values are: property */
         TRACE(("%s %d %d\n", re_op_text[member->op], member->match,
           member->values[0]))
-        return encoding->has_property(locale_info, member->values[0], ch);
+
+        switch (ENCODING_KIND(member)) {
+        case ASCII_ENCODING:
+            return ascii_encoding.has_property(locale_info, member->values[0], ch);
+        case UNICODE_ENCODING:
+            return unicode_encoding.has_property(locale_info, member->values[0], ch);
+        default:
+            return encoding->has_property(locale_info, member->values[0], ch);
+        }
     case RE_OP_RANGE:
         /* values are: lower, upper */
         TRACE(("%s %d %d %d\n", re_op_text[member->op], member->match,
@@ -4006,7 +4027,19 @@ Py_LOCAL_INLINE(Py_ssize_t) match_many_PROPERTY(RE_State* state, RE_Node* node,
 
     text = state->text;
     match = node->match == match;
-    encoding = state->encoding;
+
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        encoding = &ascii_encoding;
+        break;
+    case UNICODE_ENCODING:
+        encoding = &unicode_encoding;
+        break;
+    default:
+        encoding = state->encoding;
+        break;
+    }
+
     locale_info = state->locale_info;
     property = node->values[0];
 
@@ -4104,7 +4137,19 @@ Py_LOCAL_INLINE(Py_ssize_t) match_many_PROPERTY_IGN(RE_State* state, RE_Node*
 
     text = state->text;
     match = node->match == match;
-    encoding = state->encoding;
+
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        encoding = &ascii_encoding;
+        break;
+    case UNICODE_ENCODING:
+        encoding = &unicode_encoding;
+        break;
+    default:
+        encoding = state->encoding;
+        break;
+    }
+
     locale_info = state->locale_info;
     property = node->values[0];
 
@@ -4202,7 +4247,19 @@ Py_LOCAL_INLINE(Py_ssize_t) match_many_PROPERTY_IGN_REV(RE_State* state,
 
     text = state->text;
     match = node->match == match;
-    encoding = state->encoding;
+
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        encoding = &ascii_encoding;
+        break;
+    case UNICODE_ENCODING:
+        encoding = &unicode_encoding;
+        break;
+    default:
+        encoding = state->encoding;
+        break;
+    }
+
     locale_info = state->locale_info;
     property = node->values[0];
 
@@ -4300,7 +4357,19 @@ Py_LOCAL_INLINE(Py_ssize_t) match_many_PROPERTY_REV(RE_State* state, RE_Node*
 
     text = state->text;
     match = node->match == match;
-    encoding = state->encoding;
+
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        encoding = &ascii_encoding;
+        break;
+    case UNICODE_ENCODING:
+        encoding = &unicode_encoding;
+        break;
+    default:
+        encoding = state->encoding;
+        break;
+    }
+
     locale_info = state->locale_info;
     property = node->values[0];
 
@@ -6882,8 +6951,17 @@ Py_LOCAL_INLINE(int) try_match_ANY_U_REV(RE_State* state, RE_Node* node,
 /* Checks whether a position is on a word boundary. */
 Py_LOCAL_INLINE(int) try_match_BOUNDARY(RE_State* state, RE_Node* node,
   Py_ssize_t text_pos) {
-    return bool_as_status(state->encoding->at_boundary(state, text_pos) ==
-      node->match);
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        return bool_as_status(ascii_encoding.at_boundary(state, text_pos) ==
+          node->match);
+    case UNICODE_ENCODING:
+        return bool_as_status(unicode_encoding.at_boundary(state, text_pos) ==
+          node->match);
+    default:
+        return bool_as_status(state->encoding->at_boundary(state, text_pos) ==
+            node->match);
+    }
 }
 
 /* Checks whether there's a character at a position. */
@@ -7724,7 +7802,17 @@ Py_LOCAL_INLINE(Py_ssize_t) search_start_BOUNDARY(RE_State* state, RE_Node*
   node, Py_ssize_t text_pos, BOOL* is_partial) {
     BOOL (*at_boundary)(RE_State* state, Py_ssize_t text_pos);
 
-    at_boundary = state->encoding->at_boundary;
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        at_boundary = ascii_encoding.at_boundary;
+        break;
+    case UNICODE_ENCODING:
+        at_boundary = unicode_encoding.at_boundary;
+        break;
+    default:
+        at_boundary = state->encoding->at_boundary;
+        break;
+    }
 
     *is_partial = FALSE;
 
@@ -7744,7 +7832,17 @@ Py_LOCAL_INLINE(Py_ssize_t) search_start_BOUNDARY_rev(RE_State* state, RE_Node*
   node, Py_ssize_t text_pos, BOOL* is_partial) {
     BOOL (*at_boundary)(RE_State* state, Py_ssize_t text_pos);
 
-    at_boundary = state->encoding->at_boundary;
+    switch (ENCODING_KIND(node)) {
+    case ASCII_ENCODING:
+        at_boundary = ascii_encoding.at_boundary;
+        break;
+    case UNICODE_ENCODING:
+        at_boundary = unicode_encoding.at_boundary;
+        break;
+    default:
+        at_boundary = state->encoding->at_boundary;
+        break;
+    }
 
     *is_partial = FALSE;
 
