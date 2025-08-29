@@ -1,3 +1,7 @@
+Version: 2025.8.29
+
+    Git issue 584: AttributeError: 'AnyAll' object has no attribute 'positive'
+
 Version: 2025.7.34
 
     Git issue 575: Issues with ASCII/Unicode modifiers
