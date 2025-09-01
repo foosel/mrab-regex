@@ -1,3 +1,7 @@
+Version: 2025.9.1
+
+    Git PR 585: Fix AttributeError: 'AnyAll' object has no attribute '_key'
+
 Version: 2025.8.29
 
     Git issue 584: AttributeError: 'AnyAll' object has no attribute 'positive'

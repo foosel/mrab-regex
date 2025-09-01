@@ -1997,9 +1997,11 @@ class AnyAll(Any):
     _op_name = "ANY_ALL"
 
     def __init__(self):
-      self.positive = True
-      self.zerowidth = False
-      self.case_flags = 0
+        self.positive = True
+        self.zerowidth = False
+        self.case_flags = 0
+
+        self._key = self.__class__, self.positive
 
 class AnyU(Any):
     _opcode = {False: OP.ANY_U, True: OP.ANY_U_REV}
