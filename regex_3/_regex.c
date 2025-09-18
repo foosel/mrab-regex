@@ -26405,6 +26405,10 @@ PyMODINIT_FUNC PyInit__regex(void) {
     if (!m)
         return NULL;
 
+#if defined(Py_GIL_DISABLED)
+    PyUnstable_Module_SetGIL(m, Py_MOD_GIL_NOT_USED);
+#endif
+
     d = PyModule_GetDict(m);
 
     x = PyLong_FromLong(RE_MAGIC);

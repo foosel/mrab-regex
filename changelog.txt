@@ -1,3 +1,7 @@
+Version: 2025.9.18
+
+    Git issue 565: Support the free-threaded build of CPython 3.13
+
 Version: 2025.9.1
 
     Git PR 585: Fix AttributeError: 'AnyAll' object has no attribute '_key'
