@@ -1,3 +1,7 @@
+Version: 2025.9.19
+
+    Enable free-threading support in cibuildwheel.
+
 Version: 2025.9.18
 
     Git issue 565: Support the free-threaded build of CPython 3.13

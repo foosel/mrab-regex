@@ -71,6 +71,7 @@ jobs:
       CIBW_ARCHS_MACOS: "x86_64 arm64 universal2"
       # Windows archs
       CIBW_ARCHS_WINDOWS: "AMD64 x86 ARM64"
+      CIBW_ENABLE: cpython-freethreading
 
     steps:
       - uses: actions/checkout@v3
