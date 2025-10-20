@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "regex"
-version = "2025.9.18"
+version = "2025.10.21"
 description = "Alternative regular expression module, to replace re."
 readme = "README.rst"
 authors = [
@@ -40,5 +40,5 @@ py-modules = [
     "regex.__init__",
     "regex._main",
     "regex._regex_core",
-    "regex.test_regex",
+    "regex.tests.test_regex",
 ]
