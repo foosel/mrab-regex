@@ -11,8 +11,6 @@
  * 2010-01-16 mrab Re-written
  */
 
-/* Supports Unicode version 12.1.0. */
-
 #define RE_MAGIC 20100116
 
 #include "_regex_unicode.h"

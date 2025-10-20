@@ -18,7 +18,7 @@ import string
 import unicodedata
 from collections import defaultdict
 
-import regex._regex as _regex
+from regex import _regex
 
 __all__ = ["A", "ASCII", "B", "BESTMATCH", "D", "DEBUG", "E", "ENHANCEMATCH",
   "F", "FULLCASE", "I", "IGNORECASE", "L", "LOCALE", "M", "MULTILINE", "P",
@@ -121,7 +121,42 @@ class RegexFlag(enum.IntFlag):
 
     __str__ = object.__str__
 
-globals().update(RegexFlag.__members__)
+# Put the flags into the module namespace. Being explicit here helps tools like
+# linters and IDEs understand the code better.
+ASCII = RegexFlag.ASCII
+BESTMATCH = RegexFlag.BESTMATCH
+DEBUG = RegexFlag.DEBUG
+DOTALL = RegexFlag.DOTALL
+ENHANCEMATCH = RegexFlag.ENHANCEMATCH
+FULLCASE = RegexFlag.FULLCASE
+IGNORECASE = RegexFlag.IGNORECASE
+LOCALE = RegexFlag.LOCALE
+MULTILINE = RegexFlag.MULTILINE
+POSIX = RegexFlag.POSIX
+REVERSE = RegexFlag.REVERSE
+TEMPLATE = RegexFlag.TEMPLATE
+UNICODE = RegexFlag.UNICODE
+VERBOSE = RegexFlag.VERBOSE
+VERSION0 = RegexFlag.VERSION0
+VERSION1 = RegexFlag.VERSION1
+WORD = RegexFlag.WORD
+A = RegexFlag.A
+B = RegexFlag.B
+D = RegexFlag.D
+E = RegexFlag.E
+F = RegexFlag.F
+I = RegexFlag.I
+L = RegexFlag.L
+M = RegexFlag.M
+P = RegexFlag.P
+R = RegexFlag.R
+S = RegexFlag.S
+U = RegexFlag.U
+V0 = RegexFlag.V0
+V1 = RegexFlag.V1
+W = RegexFlag.W
+X = RegexFlag.X
+T = RegexFlag.T
 
 DEFAULT_VERSION = VERSION1
 
@@ -2488,7 +2523,7 @@ class CallGroup(RegexBase):
         self._key = self.__class__, self.group
 
     def remove_captures(self):
-        raise error("group reference not allowed", pattern, self.position)
+        raise error("group reference not allowed", self.pattern, self.position)
 
     def _compile(self, reverse, fuzzy):
         return [(OP.GROUP_CALL, self.call_ref)]
@@ -3058,7 +3093,7 @@ class Group(RegexBase):
     def dump(self, indent, reverse):
         group = self.group
         if group < 0:
-            group = private_groups[group]
+            group = self.info.private_groups[group]
         print("{}GROUP {}".format(INDENT * indent, group))
         self.subpattern.dump(indent + 1, reverse)
 
@@ -3413,7 +3448,7 @@ class RefGroup(RegexBase):
         self._key = self.__class__, self.group, self.case_flags
 
     def remove_captures(self):
-        raise error("group reference not allowed", pattern, self.position)
+        raise error("group reference not allowed", self.pattern, self.position)
 
     def _compile(self, reverse, fuzzy):
         flags = 0

@@ -35,10 +35,10 @@ requires-python = ">= 3.9"
 Homepage = "https://github.com/mrabarnett/mrab-regex"
 
 [tool.setuptools]
-package-dir = {regex = "regex_3"}
+package-dir = {"regex" = "regex"}
 py-modules = [
     "regex.__init__",
-    "regex.regex",
+    "regex._main",
     "regex._regex_core",
     "regex.test_regex",
 ]

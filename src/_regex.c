@@ -826,14 +826,10 @@ Py_LOCAL_INLINE(BOOL) ascii_has_property(RE_CODE property, Py_UCS4 ch) {
 
 /* Checks whether a character has a property, ignoring case. */
 Py_LOCAL_INLINE(BOOL) ascii_has_property_ign(RE_CODE property, Py_UCS4 ch) {
-    RE_UINT32 prop;
-
     if (ch > RE_ASCII_MAX) {
         /* Treat it as an unassigned codepoint. */
         ch = UNASSIGNED_CODEPOINT;
     }
-
-    prop = property >> 16;
 
     /* The property is case-insensitive. */
     return ascii_has_property(property, ch);
@@ -19795,7 +19791,7 @@ static PyObject* match_expand(MatchObject* self, PyObject* str_template) {
     }
 
     /* Hand the template to the template compiler. */
-    replacement = call("regex.regex", "_compile_replacement_helper",
+    replacement = call("regex._main", "_compile_replacement_helper",
       PyTuple_Pack(2, self->pattern, str_template));
     if (!replacement)
         return NULL;
@@ -21667,7 +21663,7 @@ Py_LOCAL_INLINE(PyObject*) pattern_subx(PatternObject* self, PyObject*
             /* It isn't a literal, so hand it over to the template compiler. */
             is_template = TRUE;
 
-            replacement = call("regex.regex", "_compile_replacement_helper",
+            replacement = call("regex._main", "_compile_replacement_helper",
               PyTuple_Pack(2, self, str_template));
             if (!replacement) {
                 release_buffer(&str_info);

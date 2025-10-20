@@ -241,7 +241,7 @@ __all__ = ["cache_all", "compile", "DEFAULT_VERSION", "escape", "findall",
   "VERSION1", "X", "VERBOSE", "W", "WORD", "error", "Regex", "__version__",
   "__doc__", "RegexFlag"]
 
-__version__ = "2.5.162"
+__version__ = "2025.9.18"
 
 # --------------------------------------------------------------------
 # Public interface.
@@ -414,8 +414,8 @@ def escape(pattern, special_only=True, literal_spaces=False):
 # --------------------------------------------------------------------
 # Internals.
 
-import regex._regex_core as _regex_core
-import regex._regex as _regex
+from regex import _regex_core
+from regex import _regex
 from threading import RLock as _RLock
 from locale import getpreferredencoding as _getpreferredencoding
 from regex._regex_core import *
@@ -429,7 +429,7 @@ from regex._regex_core import (ALNUM as _ALNUM, Info as _Info, OP as _OP, Source
 # Version 0 is the old behaviour, compatible with the original 're' module.
 # Version 1 is the new behaviour, which differs slightly.
 
-DEFAULT_VERSION = VERSION0
+DEFAULT_VERSION = RegexFlag.VERSION0
 
 _METACHARS = frozenset("()[]{}?*+|^$\\.-#&~")
 

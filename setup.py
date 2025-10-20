@@ -11,7 +11,7 @@ if free_threaded:
     macros.append(("Py_GIL_DISABLED", "1"))
 
 setup(
-    ext_modules=[Extension('regex._regex', [join('regex_3', '_regex.c'),
-      join('regex_3', '_regex_unicode.c')])],
+    ext_modules=[Extension('regex._regex', ['src/_regex.c',
+      'src/_regex_unicode.c'])],
       define_macros=macros,
 )

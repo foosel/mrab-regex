@@ -12,8 +12,6 @@ from itertools import chain
 from os import listdir, mkdir
 from os.path import basename, dirname, exists, join, normpath
 from time import time
-from urllib.parse import urljoin
-from urllib.request import urlretrieve
 from zipfile import ZipFile
 import re
 
@@ -182,17 +180,6 @@ def munge(value):
         munged_value = '-' + munged_value
 
     return munged_value
-
-def download_unicode_files(unicode_data_base, data_files, data_folder):
-    for section in data_files.values():
-        for rel_path in section:
-            path = normpath(join(data_folder, basename(rel_path)))
-
-            if not exists(path):
-                url = urljoin(unicode_data_base, rel_path)
-                print('Downloading {} from {}'.format(rel_path, url),
-                  flush=True)
-                urlretrieve(url, path)
 
 def parse_property_aliases(ucd_zip_path):
     properties = {}
@@ -1466,30 +1453,28 @@ def generate_code(unicode_data, unicode_version, output_folder):
 
     with open(c_path, 'w', newline='\n', encoding='ascii') as c_file:
         c_file.write('''\
-/* For Unicode version {} */
-
 #include "_regex_unicode.h"
 
 #define RE_BLANK_MASK ((1 << RE_PROP_ZL) | (1 << RE_PROP_ZP))
 #define RE_GRAPH_MASK ((1 << RE_PROP_CC) | (1 << RE_PROP_CS) | (1 << RE_PROP_CN))
 #define RE_WORD_MASK (RE_PROP_M_MASK | (1 << RE_PROP_ND) | (1 << RE_PROP_PC))
 
-typedef struct {{
+typedef struct {
     RE_UINT8 scripts[RE_MAX_SCX];
-}} RE_ScriptExt;
+} RE_ScriptExt;
 
-typedef struct {{
+typedef struct {
     RE_UINT32 delta;
     RE_UINT16 others[RE_MAX_CASES - 1];
-}} RE_AllCases;
+} RE_AllCases;
 
-typedef struct {{
+typedef struct {
     RE_UINT16 data[RE_MAX_FOLDED];
-}} RE_FullCaseFolding;
+} RE_FullCaseFolding;
 
 /* Strings. */
-char* re_strings[] = {{
-'''.format(unicode_version))
+char* re_strings[] = {
+''')
 
         lines = []
 
@@ -1594,6 +1579,8 @@ RE_GetPropertyFunc re_get_property[] = {
         max_scx = max(len(key) for key in property['values'])
 
         h_file.write('''\
+#define RE_UNICODE_VERSION "{}"
+
 typedef unsigned char RE_UINT8;
 typedef signed char RE_INT8;
 typedef unsigned short RE_UINT16;
@@ -1627,7 +1614,7 @@ typedef struct RE_PropertyValue {{
 }} RE_PropertyValue;
 
 typedef RE_UINT32 (*RE_GetPropertyFunc)(RE_UINT32 codepoint);
-'''.format(max_scx))
+'''.format(UNICODE_VERSION, max_scx))
 
         gc_id = properties[munge('General_Category')]['id']
         cased_id = properties[munge('Cased')]['id']
@@ -1765,19 +1752,22 @@ typedef RE_UINT32 (*RE_GetPropertyFunc)(RE_UINT32 codepoint);
         h_file.write('int re_get_full_case_folding(RE_UINT32 codepoint, RE_UINT32* folded);\n')
 
 # The Unicode version.
-UNICODE_VERSION = '16.0.0'
+UNICODE_VERSION = '17.0.0'
 
 this_folder = dirname(__file__)
 
-# The URL from which the Unicode data can be obtained.
-ucd_zip_url = 'https://www.unicode.org/Public/zipped/%s/UCD.zip' % UNICODE_VERSION
-
+# Do we have the UCD.zip file?
 ucd_zip_path = join(this_folder, 'UCD.zip')
+
+if not exists(ucd_zip_path):
+    print('UCD.zip not found in %s' % this_folder, flush=True)
+    print('Please download it from https://www.unicode.org/Public/UCD/latest/ucd/UCD.zip', flush=True)
+    quit(1)
 
 if not have_ucd_version(ucd_zip_path, UNICODE_VERSION):
     # Download the zipped Unicode data.
-    print('Downloading UCD.zip for Unicode %s' % UNICODE_VERSION, flush=True)
-    urlretrieve(ucd_zip_url, ucd_zip_path)
+    print('Downloaded UCD.zip is not for Unicode %s' % UNICODE_VERSION, flush=True)
+    quit(1)
 
 NUM_CODEPOINTS = 0x110000
 
