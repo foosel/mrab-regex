@@ -8,6 +8,7 @@ include regex/__init__.py
 include regex/_main.py
 include regex/_regex_core.py
 include regex/tests/test_regex.py
+include setup.py
 include src/_regex.c
 include src/_regex.h
 include src/_regex_unicode.c
