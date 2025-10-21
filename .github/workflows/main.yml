@@ -61,8 +61,7 @@ jobs:
 
       - name: Run test
         run: |
-          source="$(ls dist/*.tar.gz | head -n1)"
-          python -m pip install -vv "$source"
+          python -m pip install -vv dist/*.tar.gz
           python -c "import regex"
           python -m unittest -v regex.tests.test_regex
 
