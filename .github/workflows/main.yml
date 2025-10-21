@@ -33,8 +33,7 @@ jobs:
 
       - name: Run test
         run: |
-          python -m pip install -vv .
-          tree .
+          python -m pip install -vv -e .
           python -c "import regex"
           python -m unittest -v regex.tests.test_regex
 
