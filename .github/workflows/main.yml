@@ -19,6 +19,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     strategy:
+      fail-fast: false
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
 
@@ -174,7 +175,7 @@ jobs:
   # Upload to PyPI
   upload_pypi:
     name: Publish to PyPI
-    needs: [build_source, build_wheels, build_in_manylinux2014, build_arch_wheels]
+    needs: [run_test, build_source, build_wheels, build_in_manylinux2014, build_arch_wheels]
     runs-on: ubuntu-latest
 
     steps:
