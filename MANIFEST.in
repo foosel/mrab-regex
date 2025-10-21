@@ -3,7 +3,6 @@ include docs/Features.html
 include docs/UnicodeProperties.rst
 include LICENSE.txt
 include pyproject.toml
-include setup.py
 include README.rst
 include regex/__init__.py
 include regex/_main.py
